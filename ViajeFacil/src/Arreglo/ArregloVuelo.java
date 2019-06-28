@@ -29,6 +29,11 @@ public class ArregloVuelo {
         return vuelo;
     }
     
+    /* PARA ACTUALIZAR LOS VUELOS */
+    public void Actualizar(){
+        
+    }
+    
     /* PARA ELIMINAR LOS VUELOS SE REALIZA POR LA POSICION */
     public void Eliminar(int pos){
         vuelo.remove(pos);
