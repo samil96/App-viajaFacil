@@ -13,6 +13,8 @@ import java.util.List;
  */
 public class TourDAO implements MantenedorBD{
 
+    private List lista;
+    
     @Override
     public String agregar() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
