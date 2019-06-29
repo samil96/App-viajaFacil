@@ -3,17 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controlador;
+package interfaces;
 
+import clases.Servicio;
 import java.util.List;
 
 /**
  *
  * @author FRANK
  */
-public interface MantenedorBD {
-    public String agregar();
-    public String actualizar();
-    public String eliminar();
-    public List buscar();
+public interface iMantenedor {
+    public void agregar();
+    public void actualizar();
+    public void eliminar();
+    public Servicio buscar(int codigo);
 }
