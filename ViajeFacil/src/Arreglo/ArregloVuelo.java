@@ -14,9 +14,9 @@ public class ArregloVuelo {
     
     public ArregloVuelo(List<Vuelo> vuelo) {
         vuelo=new ArrayList();
-        vuelo.add(new Vuelo("Latam", "Cuzco", "10/10/19", 20, 30, 1009, "viaje"));
-        vuelo.add(new Vuelo("Latam", "Tacna", "10/10/19", 20, 30, 1009, "viaje"));
-        vuelo.add(new Vuelo("Latam", "Tarapoto", "10/10/19", 20, 30, 1009, "viaje"));   
+        vuelo.add(new Vuelo("Latam", "Cuzco", "10/10/19", 20, 30, "viaje"));
+        vuelo.add(new Vuelo("Latam", "Tacna", "10/10/19", 20, 30, "viaje"));
+        vuelo.add(new Vuelo("Latam", "Tarapoto", "10/10/19", 20, 30, "viaje"));   
     }
     
     /* PARA AGRAGR UN NUEVO VUELO - vue es la variable cuando se añado se guardara ahi */

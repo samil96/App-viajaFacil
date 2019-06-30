@@ -12,9 +12,12 @@ import java.util.List;
  * @author FRANK
  */
 public class Vendedor extends Persona{
+    private int codigo;
+    static int cuenta=1001;
     
-    public Vendedor(int codigo, String nombre, String apellidos) {
-        super(codigo, nombre, apellidos);
+    public Vendedor(String nombre, String apellidos) {
+        super(nombre, apellidos);
+        this.codigo = cuenta++;
     }
     
     public boolean registrarCliente(){

@@ -12,12 +12,15 @@ import java.util.List;
  * @author FRANK
  */
 public class Tour extends Servicio{
+    private int codigo;
     private String fecha_inicio;
     private String fecha_fin;
     private List arrayActividades;
+    static int cuenta=1001;
 
-    public Tour(String fecha_inicio, String fecha_fin, List arrayActividades, int cod_Servicio, String nombre) {
-        super(cod_Servicio, nombre);
+    public Tour(String fecha_inicio, String fecha_fin, List arrayActividades, String nombre) {
+        super(nombre);
+        this.codigo = cuenta++;
         this.fecha_inicio = fecha_inicio;
         this.fecha_fin = fecha_fin;
         this.arrayActividades = arrayActividades;
@@ -50,6 +53,14 @@ public class Tour extends Servicio{
 
     public void setArrayActividades(List arrayActividades) {
         this.arrayActividades = arrayActividades;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
     
     

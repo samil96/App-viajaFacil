@@ -6,24 +6,22 @@
 package Arreglo;
 
 import clases.Servicio;
-import clases.Tour;
 import interfaces.iMantenedor;
 import java.util.ArrayList;
 import java.util.List;
+import clases.Asiento;
 
 /**
  *
- * @author Nuria
+ * @author FRANK
  */
-public class ArregloTour implements iMantenedor{
-    private List<Tour> tour;
+public class ArregloAsiento implements iMantenedor{
+    private List<Asiento> asiento;
 
-    public ArregloTour(List<Tour> tour) {
-        tour=new ArrayList();
-        tour.add(new Tour("28/07/19", "30/07/19", tour, "Tour del Sol"));
-        tour.add(new Tour("27/08/19", "31/08/19", tour, "Tour de Santa Rosa Lima"));
-        tour.add(new Tour("25/09/19", "30/09/19", tour, "Camino Inca"));
-        
+    public ArregloAsiento() {
+        asiento = new ArrayList();
+        asiento.add(new Asiento("A201", 1001, "Disponible"));
+        asiento.add(new Asiento("F504", 1001, "Disponible"));
     }
 
     @Override
@@ -45,7 +43,5 @@ public class ArregloTour implements iMantenedor{
     public Servicio buscar(int codigo) {
         return null;
     }
-    
-    
     
 }

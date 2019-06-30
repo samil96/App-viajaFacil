@@ -11,10 +11,10 @@ package clases;
  */
 public class Asiento {
     private String cod;
-    private String cod_vuelo;
+    private int cod_vuelo;
     private String estado;
 
-    public Asiento(String cod, String cod_vuelo, String estado) {
+    public Asiento(String cod, int cod_vuelo, String estado) {
         this.cod = cod;
         this.cod_vuelo = cod_vuelo;
         this.estado = estado;
@@ -36,11 +36,11 @@ public class Asiento {
         this.cod = cod;
     }
 
-    public String getCod_vuelo() {
+    public int getCod_vuelo() {
         return cod_vuelo;
     }
 
-    public void setCod_vuelo(String cod_vuelo) {
+    public void setCod_vuelo(int cod_vuelo) {
         this.cod_vuelo = cod_vuelo;
     }
     

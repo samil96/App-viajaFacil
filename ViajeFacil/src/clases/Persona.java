@@ -10,22 +10,12 @@ package clases;
  * @author FRANK
  */
 public abstract class Persona {
-    private int codigo;
     private String nombre;
     private String apellidos;
 
-    public Persona(int codigo, String nombre, String apellidos) {
-        this.codigo = codigo;
+    public Persona(String nombre, String apellidos) {
         this.nombre = nombre;
         this.apellidos = apellidos;
-    }
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
     }
 
     public String getNombre() {

@@ -10,12 +10,15 @@ package clases;
  * @author FRANK
  */
 public class Viajero extends Persona{
+    private int codigo;
     private int dni;
     private int telefono;
     private int cod_ticket;
+    static int cuenta=1001;
 
-    public Viajero(int dni, int telefono, int cod_ticket, int codigo, String nombre, String apellidos) {
-        super(codigo, nombre, apellidos);
+    public Viajero(int dni, int telefono, int cod_ticket, String nombre, String apellidos) {
+        super(nombre, apellidos);
+        this.codigo = cuenta++;
         this.dni = dni;
         this.telefono = telefono;
         this.cod_ticket = cod_ticket;
@@ -43,6 +46,14 @@ public class Viajero extends Persona{
 
     public void setCod_ticket(int cod_ticket) {
         this.cod_ticket = cod_ticket;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
     
     

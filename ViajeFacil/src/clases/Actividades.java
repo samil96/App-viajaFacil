@@ -11,12 +11,15 @@ package clases;
  */
 public class Actividades {
     private int codActividad;
+    private int codTour;
     private int hora_inicio;
     private int hora_fin;
     private String detalle;
+    static int cuenta=1001;
 
-    public Actividades(int codActividad, int hora_inicio, int hora_fin, String detalle) {
-        this.codActividad = codActividad;
+    public Actividades(int codTour, int hora_inicio, int hora_fin, String detalle) {
+        this.codActividad = cuenta++;
+        this.codTour = codTour;
         this.hora_inicio = hora_inicio;
         this.hora_fin = hora_fin;
         this.detalle = detalle;

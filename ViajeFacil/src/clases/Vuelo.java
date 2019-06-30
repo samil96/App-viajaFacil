@@ -11,14 +11,17 @@ package clases;
  * @author FRANK
  */
 public class Vuelo extends Servicio{
+    private int codigo;
     private String aerolinea;
     private String destino;
     private String fecha;
     private int hora;
     private int cant_asientos;
+    static int cuenta=1001;
 
-    public Vuelo(String aerolinea, String destino, String fecha, int hora, int cant_asientos, int cod_Servicio, String nombre) {
-        super(cod_Servicio, nombre);
+    public Vuelo(String aerolinea, String destino, String fecha, int hora, int cant_asientos, String nombre) {
+        super(nombre);
+        this.codigo = cuenta++;
         this.aerolinea = aerolinea;
         this.destino = destino;
         this.fecha = fecha;
@@ -69,6 +72,14 @@ public class Vuelo extends Servicio{
 
     public void setCant_asientos(int cant_asientos) {
         this.cant_asientos = cant_asientos;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
     
 }

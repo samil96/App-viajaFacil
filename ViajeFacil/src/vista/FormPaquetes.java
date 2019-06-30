@@ -282,7 +282,7 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
         dt.setRowCount(0);
         for(Hotel j: obj.data()){
             if(j instanceof Hotel){}
-            Object v[]={j.getCod_Servicio(),j.getNombre(),j.getCategoria(),j.getNum_hab()};
+            Object v[]={j.getCodigo(),j.getNombre(),j.getCategoria(),j.getNum_hab()};
             dt.addRow(v);
         }
     }//GEN-LAST:event_btnListarActionPerformed

@@ -13,9 +13,10 @@ public class Habitacion {
     private int cod_habi;
     private String cod_hotel;
     private String estado;
+    static int cuenta=1001;
 
-    public Habitacion(int cod_habi, String cod_hotel, String estado) {
-        this.cod_habi = cod_habi;
+    public Habitacion(String cod_hotel, String estado) {
+        this.cod_habi = cuenta++;
         this.cod_hotel = cod_hotel;
         this.estado = estado;
     }

@@ -3,22 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfaces;
+package Arreglo;
 
-import clases.Servicio;
-import clases.Tour;
+import java.util.ArrayList;
 import java.util.List;
+import clases.Actividades;
+import clases.Servicio;
+import interfaces.iMantenedor;
 
 /**
  *
  * @author FRANK
  */
-public class TourDAO implements iMantenedor{
+public class ArregloActividades implements iMantenedor{
 
-    private List lista;
+    private List<Actividades> lista;
+
+    public ArregloActividades() {
+        lista = new ArrayList();
+        lista.add(new Actividades(1001, 8, 18, "Visita Machu Picchu"));
+        lista.add(new Actividades(1001, 8, 18, "Visita Huayna Picchu"));
+    }
 
     @Override
-    public void agregar() {
+    public void agregar(Servicio s) {
         
     }
 
@@ -36,6 +44,5 @@ public class TourDAO implements iMantenedor{
     public Servicio buscar(int codigo) {
         return null;
     }
-    
     
 }

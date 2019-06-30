@@ -11,11 +11,14 @@ package clases;
  * @author FRANK
  */
 public class Hotel extends Servicio{
+    private int codigo;
     private String categoria;
     private int num_hab;
+    static int cuenta=1001;
 
-    public Hotel(String categoria, int num_hab, int cod_Servicio, String nombre) {
-        super(cod_Servicio, nombre);
+    public Hotel(String categoria, int num_hab, String nombre) {
+        super(nombre);
+        this.codigo = cuenta++;
         this.categoria = categoria;
         this.num_hab = num_hab;
     }
@@ -39,6 +42,14 @@ public class Hotel extends Servicio{
 
     public void setNum_hab(int num_hab) {
         this.num_hab = num_hab;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
     
     
