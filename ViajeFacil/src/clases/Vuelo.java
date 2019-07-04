@@ -1,16 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package clases;
-
-
+import Arreglo.ArregloVuelo;
+import interfaces.iMantenedor;
+import java.util.List;
 /**
  *
  * @author FRANK
  */
-public class Vuelo extends Servicio{
+public class Vuelo extends Servicio implements iMantenedor<Vuelo>{
     private int codigo;
     private String aerolinea;
     private String destino;
@@ -82,4 +78,47 @@ public class Vuelo extends Servicio{
         this.codigo = codigo;
     }
     
+    
+    ArregloVuelo obj=new ArregloVuelo();
+    List<Vuelo> vuelo=obj.data();
+    /* PARA LISTAR LOS VUELOS */
+    public List<Vuelo> data(){
+        return vuelo;
+    }
+
+    public int obtenerPosicion(int codigo){
+        int pos=-1;
+        for (int i = 0; i < tamanio(); i++) {
+            if(vuelo.get(i).getCodigo()==codigo){
+                pos=i; break;
+            }
+        }
+        return pos;
+    }
+
+    public int tamanio(){
+        return vuelo.size();
+    }
+
+    /* PARA AGRAGR UN NUEVO VUELO - vue es la variable cuando se añado se guardara ahi */
+    @Override
+    public void agregar(Vuelo t) {
+        obj.agregar(t);
+    }
+
+    /* PARA ACTUALIZAR LOS VUELOS */
+    @Override
+    public void actualizar(int pos, Vuelo t) {
+        obj.actualizar(pos, t);
+    }
+
+    @Override
+    public void eliminar(int codigo) {
+        obj.eliminar(obj.obtenerPosicion(codigo));
+    }
+
+    @Override
+    public Vuelo buscar(int pos) {
+        return obj.buscar(pos);
+    }
 }
