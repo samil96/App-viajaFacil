@@ -15,24 +15,26 @@ public class Paquete {
     private int cod_Paquete;
     private double precio;
     private String detalle;
-    private List lista;
+    private int cod_vuelo;
+    private int cod_hotel;
+    private int cod_tour;
+    static int cuenta=1001;
 
-    public Paquete(int cod_Paquete, double precio, String detalle) {
-        this.cod_Paquete = cod_Paquete;
+    public Paquete(double precio, int cod_vuelo, int cod_hotel, int cod_tour, String detalle) {
+        this.cod_Paquete = cuenta++;
         this.precio = precio;
+        this.cod_vuelo = cod_vuelo;
+        this.cod_hotel = cod_hotel;
+        this.cod_tour = cod_tour;
         this.detalle = detalle;
     }
+
+    
     public double costoH(){
         return 0;
     }
     public double CostoT(){
         return 0;
-    }
-    public void AgregarServicio(){
-        
-    }
-    public List<Servicio> ListarServicio(){
-        return null;
     }
 
     public int getCod_Paquete() {
@@ -58,5 +60,30 @@ public class Paquete {
     public void setDetalle(String detalle) {
         this.detalle = detalle;
     }
+
+    public int getCod_vuelo() {
+        return cod_vuelo;
+    }
+
+    public void setCod_vuelo(int cod_vuelo) {
+        this.cod_vuelo = cod_vuelo;
+    }
+
+    public int getCod_hotel() {
+        return cod_hotel;
+    }
+
+    public void setCod_hotel(int cod_hotel) {
+        this.cod_hotel = cod_hotel;
+    }
+
+    public int getCod_tour() {
+        return cod_tour;
+    }
+
+    public void setCod_tour(int cod_tour) {
+        this.cod_tour = cod_tour;
+    }
+
     
 }

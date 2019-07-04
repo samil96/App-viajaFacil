@@ -17,9 +17,10 @@ public class Ticket {
     private String fecha;
     private int hora;
     private double precio;
+    static int cuenta=1001;
 
-    public Ticket(int cod_Ticket, int cod_cliente, int cod_Paquete, String destino, String fecha, int hora, double precio) {
-        this.cod_Ticket = cod_Ticket;
+    public Ticket(int cod_cliente, int cod_Paquete, String destino, String fecha, int hora, double precio) {
+        this.cod_Ticket = cuenta++;
         this.cod_cliente = cod_cliente;
         this.cod_Paquete = cod_Paquete;
         this.destino = destino;
@@ -27,13 +28,6 @@ public class Ticket {
         this.hora = hora;
         this.precio = precio;
     }
-    public int CalcularHora(){
-        return 0;
-    }
-    public String calcularFecha(){
-        return "";
-    }
-
     public int getCod_Ticket() {
         return cod_Ticket;
     }

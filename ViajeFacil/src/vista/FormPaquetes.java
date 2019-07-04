@@ -441,14 +441,14 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
         dt.setRowCount(0);
         for(Hotel j: obj.data()){
             if(j instanceof Hotel){}
-            Object v[]={j.getNombre(),j.getCategoria(),j.getNum_hab()};
+            Object v[]={j.getNombre(),j.getCategoria(),j.getHabitaciones().size()};
             dt.addRow(v);
         }
     }//GEN-LAST:event_btnListarVuelosActionPerformed
 
     private void btnBuscarVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVuelosActionPerformed
         int cod=Integer.parseInt(txtCodVuelos.getText());
-        obj.Obtener(cod);
+        obj.buscar(obj.obtenerPosicion(cod));
     }//GEN-LAST:event_btnBuscarVuelosActionPerformed
 
     private void btnBuscarHotelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarHotelesActionPerformed

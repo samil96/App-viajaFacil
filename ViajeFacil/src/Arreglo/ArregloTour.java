@@ -5,7 +5,7 @@
  */
 package Arreglo;
 
-import clases.Servicio;
+import clases.Actividades;
 import clases.Tour;
 import interfaces.iMantenedor;
 import java.util.ArrayList;
@@ -15,37 +15,61 @@ import java.util.List;
  *
  * @author Nuria
  */
-public class ArregloTour implements iMantenedor{
+public class ArregloTour implements iMantenedor<Tour>{
     private List<Tour> tour;
 
-    public ArregloTour(List<Tour> tour) {
+    public ArregloTour() {
         tour=new ArrayList();
-        tour.add(new Tour("28/07/19", "30/07/19", tour, "Tour del Sol"));
-        tour.add(new Tour("27/08/19", "31/08/19", tour, "Tour de Santa Rosa Lima"));
-        tour.add(new Tour("25/09/19", "30/09/19", tour, "Camino Inca"));
-        
+        List a = new ArrayList();
+        a.add(new Actividades(8, 18, "visita al templo del sol"));
+        a.add(new Actividades(8, 18, "Visita museo x"));
+        tour.add(new Tour("Cusco", a, "Tour del Sol"));
+        List c = new ArrayList();
+        c.add(new Actividades(8, 18, "caminata a Ollantaytambo"));
+        c.add(new Actividades(8, 18, "caminata a Pacaymayo"));
+        tour.add(new Tour("Cusco", c, "Camino Inca"));
+        List b = new ArrayList();
+        b.add(new Actividades(8, 18, "visita museo de lima"));
+        b.add(new Actividades(8, 18, "Visita plaza de armas"));
+        tour.add(new Tour("Tacna", b, "Tour de Santa Rosa Lima"));
     }
 
-    @Override
-    public void agregar(Servicio s) {
-        
-    }
-
-    @Override
-    public void actualizar() {
-        
-    }
-
-    @Override
-    public void eliminar() {
-        
-    }
-
-    @Override
-    public Servicio buscar(int codigo) {
-        return null;
+    public List<Tour> data(){
+        return tour;
     }
     
-    
+    public int obtenerPosicion(int codigo){
+        int pos=-1;
+        for (int i = 0; i < tamanio(); i++) {
+            if(tour.get(i).getCodigo()==codigo){
+                pos=i; break;
+            }
+        }
+        return pos;
+    }
+
+    public int tamanio(){
+        return tour.size();
+    }
+    @Override
+    public void agregar(Tour t) {
+        tour.add(t);
+    }
+
+    @Override
+    public void actualizar(int pos, Tour t) {
+        tour.set(pos, t);
+    }
+
+    @Override
+    public void eliminar(int pos) {
+        tour.remove(pos);
+    }
+
+    @Override
+    public Tour buscar(int pos) {
+        return tour.get(pos);
+    }
+
     
 }

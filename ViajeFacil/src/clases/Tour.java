@@ -13,38 +13,28 @@ import java.util.List;
  */
 public class Tour extends Servicio{
     private int codigo;
-    private String fecha_inicio;
-    private String fecha_fin;
-    private List arrayActividades;
+    private String destino;
+    private List<Actividades> arrayActividades;
     static int cuenta=1001;
 
-    public Tour(String fecha_inicio, String fecha_fin, List arrayActividades, String nombre) {
+    public Tour(String destino, List arrayActividades, String nombre) {
         super(nombre);
         this.codigo = cuenta++;
-        this.fecha_inicio = fecha_inicio;
-        this.fecha_fin = fecha_fin;
+        this.destino = destino;
         this.arrayActividades = arrayActividades;
+    }
+
+    public String getDestino() {
+        return destino;
+    }
+
+    public void setDestino(String destino) {
+        this.destino = destino;
     }
 
     @Override
     public double calcularCostoServicio() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public String getFecha_inicio() {
-        return fecha_inicio;
-    }
-
-    public void setFecha_inicio(String fecha_inicio) {
-        this.fecha_inicio = fecha_inicio;
-    }
-
-    public String getFecha_fin() {
-        return fecha_fin;
-    }
-
-    public void setFecha_fin(String fecha_fin) {
-        this.fecha_fin = fecha_fin;
     }
 
     public List getArrayActividades() {

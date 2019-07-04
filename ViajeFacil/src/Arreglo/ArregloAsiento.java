@@ -5,7 +5,6 @@
  */
 package Arreglo;
 
-import clases.Servicio;
 import interfaces.iMantenedor;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,7 @@ import clases.Asiento;
  *
  * @author FRANK
  */
-public class ArregloAsiento implements iMantenedor{
+public class ArregloAsiento implements iMantenedor<Asiento>{
     private List<Asiento> asiento;
 
     public ArregloAsiento() {
@@ -24,24 +23,43 @@ public class ArregloAsiento implements iMantenedor{
         asiento.add(new Asiento("F504", 1001, "Disponible"));
     }
 
+    public int obtenerPosicion(String codigo){
+        int pos=-1;
+        for (int i = 0; i < tamanio(); i++) {
+            if(asiento.get(i).getCod().compareTo(codigo)==0){
+                pos=i; break;
+            }
+        }
+        return pos;
+    }
+    public List<Asiento> data(){
+        return asiento;
+    }
+    public int tamanio(){
+        return asiento.size();
+    }
     @Override
-    public void agregar(Servicio s) {
-        
+    public void agregar(Asiento t) {
+        asiento.add(t);
     }
 
     @Override
-    public void actualizar() {
-        
+    public void actualizar(int pos, Asiento t) {
+        asiento.set(pos, t);
     }
 
     @Override
-    public void eliminar() {
-        
+    public void eliminar(int pos) {
+         asiento.remove(pos);
     }
 
     @Override
-    public Servicio buscar(int codigo) {
-        return null;
+    public Asiento buscar(int pos) {
+        return asiento.get(pos);
+    }
+
+    public void setAsiento(List<Asiento> asiento) {
+        this.asiento = asiento;
     }
     
 }

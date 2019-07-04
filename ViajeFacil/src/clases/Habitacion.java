@@ -11,13 +11,10 @@ package clases;
  */
 public class Habitacion {
     private int cod_habi;
-    private String cod_hotel;
     private String estado;
-    static int cuenta=1001;
 
-    public Habitacion(String cod_hotel, String estado) {
-        this.cod_habi = cuenta++;
-        this.cod_hotel = cod_hotel;
+    public Habitacion(int cod_habi, String estado) {
+        this.cod_habi = cod_habi;
         this.estado = estado;
     }
 
@@ -37,12 +34,4 @@ public class Habitacion {
         this.cod_habi = cod_habi;
     }
 
-    public String getCod_hotel() {
-        return cod_hotel;
-    }
-
-    public void setCod_hotel(String cod_hotel) {
-        this.cod_hotel = cod_hotel;
-    }
-    
 }

@@ -8,41 +8,57 @@ package Arreglo;
 import java.util.ArrayList;
 import java.util.List;
 import clases.Actividades;
-import clases.Servicio;
 import interfaces.iMantenedor;
 
 /**
  *
  * @author FRANK
  */
-public class ArregloActividades implements iMantenedor{
+public class ArregloActividades implements iMantenedor<Actividades>{
 
     private List<Actividades> lista;
 
     public ArregloActividades() {
         lista = new ArrayList();
-        lista.add(new Actividades(1001, 8, 18, "Visita Machu Picchu"));
-        lista.add(new Actividades(1001, 8, 18, "Visita Huayna Picchu"));
+    }
+
+    public int obtenerPosicion(int codigo){
+        int pos=-1;
+        for (int i = 0; i < tamanio(); i++) {
+            if(lista.get(i).getCodActividad()==codigo){
+                pos=i; break;
+            }
+        }
+        return pos;
+    }
+    public List<Actividades> data(){
+        return lista;
+    }
+    public int tamanio(){
+        return lista.size();
+    }
+    @Override
+    public void agregar(Actividades t) {
+        lista.add(t);
     }
 
     @Override
-    public void agregar(Servicio s) {
-        
+    public void actualizar(int pos, Actividades t) {
+        lista.set(pos, t);
     }
 
     @Override
-    public void actualizar() {
-        
+    public void eliminar(int pos) {
+        lista.remove(pos);
     }
 
     @Override
-    public void eliminar() {
-        
+    public Actividades buscar(int pos) {
+        return lista.get(pos);
     }
 
-    @Override
-    public Servicio buscar(int codigo) {
-        return null;
+    public void setLista(List<Actividades> lista) {
+        this.lista = lista;
     }
-    
+
 }

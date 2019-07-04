@@ -8,9 +8,9 @@ import java.util.List;
  *
  * @author FRANK
  */
-public interface iMantenedor {
-    public void agregar(Servicio s);
-    public void actualizar();
-    public void eliminar();
-    public Servicio buscar(int codigo);
+public interface iMantenedor<T> {
+    public void agregar(T t);
+    public void actualizar(int pos, T t);
+    public void eliminar(int pos);
+    public T buscar(int pos);
 }

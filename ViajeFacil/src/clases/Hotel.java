@@ -5,6 +5,8 @@
  */
 package clases;
 
+import java.util.List;
+
 
 /**
  *
@@ -12,15 +14,17 @@ package clases;
  */
 public class Hotel extends Servicio{
     private int codigo;
-    private String categoria;
-    private int num_hab;
+    private int categoria;
+    private String lugar;
+    private List habitaciones;
     static int cuenta=1001;
 
-    public Hotel(String categoria, int num_hab, String nombre) {
+    public Hotel(int categoria, String lugar, List habitaciones, String nombre) {
         super(nombre);
         this.codigo = cuenta++;
         this.categoria = categoria;
-        this.num_hab = num_hab;
+        this.lugar = lugar;
+        this.habitaciones = habitaciones;
     }
 
     @Override
@@ -28,20 +32,12 @@ public class Hotel extends Servicio{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public String getCategoria() {
+    public int getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(int categoria) {
         this.categoria = categoria;
-    }
-
-    public int getNum_hab() {
-        return num_hab;
-    }
-
-    public void setNum_hab(int num_hab) {
-        this.num_hab = num_hab;
     }
 
     public int getCodigo() {
@@ -51,6 +47,21 @@ public class Hotel extends Servicio{
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-    
+
+    public List getHabitaciones() {
+        return habitaciones;
+    }
+
+    public void setHabitaciones(List habitaciones) {
+        this.habitaciones = habitaciones;
+    }
+
+    public String getLugar() {
+        return lugar;
+    }
+
+    public void setLugar(String lugar) {
+        this.lugar = lugar;
+    }
     
 }
