@@ -5,15 +5,15 @@
  */
 package vista;
 
+import Arreglo.ArregloTour;
+
 /**
  *
  * @author FRANK
  */
 public class FrmTour extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmTour
-     */
+    ArregloTour obj= new ArregloTour();
     public FrmTour() {
         initComponents();
     }
