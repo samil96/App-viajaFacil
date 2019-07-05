@@ -37,6 +37,7 @@ public class ArregloHotel implements iMantenedor<Hotel>{
         h.add(new Habitacion(606, "Libre"));
         hot.add(new Hotel(4, "Arequipa", h, "Casa Andina Premium"));
     }
+    
     public int obtenerPosicion(int codigo){
         int pos=-1;
         for (int i = 0; i < tamanio(); i++) {
@@ -72,4 +73,5 @@ public class ArregloHotel implements iMantenedor<Hotel>{
     public Hotel buscar(int pos) {
         return hot.get(pos);
     }
+    
 }

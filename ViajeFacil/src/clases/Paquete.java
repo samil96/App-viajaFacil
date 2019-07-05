@@ -1,17 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package clases;
 
 import java.util.List;
-
+import Arreglo.ArregloPaquetes;
+import interfaces.iMantenedor;
 /**
  *
- * @author FRANK
+ * @author FRANK Y LESLY
  */
-public class Paquete {
+public class Paquete implements iMantenedor<Paquete>{
     private int cod_Paquete;
     private double precio;
     private String detalle;
@@ -85,5 +82,55 @@ public class Paquete {
         this.cod_tour = cod_tour;
     }
 
+    /* METODOS PARA LISTAR */
+    /* objPack es el objeto que se crea */
+    ArregloPaquetes objPack = new ArregloPaquetes();
+    List<Paquete> pack = objPack.data();
+
+    /* PARA LISTAR LOS VUELOS */
+    public List<Paquete> data() {
+        return pack;
+    }
+    /*metodo obtener la posicion por medio del codigo d evuelo*/
+    public int obtenerPosicion(int codigo) {
+        int pos = -1;
+        for (int i = 0; i < tamanio(); i++) {
+            if (pack.get(i).getCod_Paquete() == codigo) {
+                pos = i;
+                break;
+            }
+        }
+        return pos;
+    }
+    /* obtener el tamaño de la lista*/
+    public int tamanio() {
+        return pack.size();
+    }
+    
+    /*METODOS DEL CRUD*/
+    /*AGREGAR UN PAQUETE AL ARREGLO*/
+    @Override
+    public void agregar(Paquete t) {
+        objPack.agregar(t);
+    }
+    
+    /*ACTULIZAR EL ARREGLO*/
+    @Override
+    public void actualizar(int pos, Paquete t) {
+        objPack.actualizar(pos, t);
+    }
+    
+    /*ELIMINAR UN PAQUETE DEL ARREGLO*/
+    @Override
+    public void eliminar(int pos) {
+        objPack.eliminar(pos);
+    }
+    
+    /*BUSCAR UN PAQUETE DEL ARREGLO*/
+    @Override
+    public Paquete buscar(int pos) {
+        return objPack.buscar(pos);
+    }
+    
     
 }

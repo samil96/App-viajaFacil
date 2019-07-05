@@ -1,19 +1,22 @@
 package clases;
+
 import Arreglo.ArregloVuelo;
 import interfaces.iMantenedor;
 import java.util.List;
+
 /**
  *
- * @author FRANK
+ * @author Lesly
  */
-public class Vuelo extends Servicio implements iMantenedor<Vuelo>{
+public class Vuelo extends Servicio implements iMantenedor<Vuelo> {
+
     private int codigo;
     private String aerolinea;
     private String destino;
     private String fecha;
     private int hora;
     private int cant_asientos;
-    static int cuenta=1001;
+    static int cuenta = 1001;
 
     public Vuelo(String aerolinea, String destino, String fecha, int hora, int cant_asientos, String nombre) {
         super(nombre);
@@ -77,48 +80,55 @@ public class Vuelo extends Servicio implements iMantenedor<Vuelo>{
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-    
-    
-    ArregloVuelo obj=new ArregloVuelo();
-    List<Vuelo> vuelo=obj.data();
+
+    /* metodos */
+    /* objVuelo es el objeto que se crea */
+    ArregloVuelo objVuelo = new ArregloVuelo();
+    List<Vuelo> vuelo = objVuelo.data();
+
     /* PARA LISTAR LOS VUELOS */
-    public List<Vuelo> data(){
+    public List<Vuelo> data() {
         return vuelo;
     }
-
-    public int obtenerPosicion(int codigo){
-        int pos=-1;
+    /*metodo obtener la posicion por medio del codigo d evuelo*/
+    public int obtenerPosicion(int codigo) {
+        int pos = -1;
         for (int i = 0; i < tamanio(); i++) {
-            if(vuelo.get(i).getCodigo()==codigo){
-                pos=i; break;
+            if (vuelo.get(i).getCodigo() == codigo) {
+                pos = i;
+                break;
             }
         }
         return pos;
     }
-
-    public int tamanio(){
+    /* obtener el tamaño de la lista*/
+    public int tamanio() {
         return vuelo.size();
     }
-
-    /* PARA AGRAGR UN NUEVO VUELO - vue es la variable cuando se añado se guardara ahi */
+    
+    /*METODOS DEL CRUD*/
+    /* PARA AGREGAR UN NUEVO VUELO */
     @Override
     public void agregar(Vuelo t) {
-        obj.agregar(t);
+        objVuelo.agregar(t);
     }
 
     /* PARA ACTUALIZAR LOS VUELOS */
     @Override
     public void actualizar(int pos, Vuelo t) {
-        obj.actualizar(pos, t);
+        objVuelo.actualizar(pos, t);
     }
-
+    
+    /*ELIMINAR UN VUELO*/
     @Override
     public void eliminar(int codigo) {
-        obj.eliminar(obj.obtenerPosicion(codigo));
+        objVuelo.eliminar(objVuelo.obtenerPosicion(codigo));
     }
-
+    
+    /* BUSCAR UN VUELO*/
     @Override
     public Vuelo buscar(int pos) {
-        return obj.buscar(pos);
+        return objVuelo.buscar(pos);
     }
+    
 }
