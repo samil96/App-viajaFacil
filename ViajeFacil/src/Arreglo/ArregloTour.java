@@ -15,7 +15,7 @@ import java.util.List;
  *
  * @author Nuria
  */
-public class ArregloTour implements iMantenedor<Tour>{
+public class ArregloTour{
     private List<Tour> tour;
 
     public ArregloTour() {
@@ -33,43 +33,5 @@ public class ArregloTour implements iMantenedor<Tour>{
         b.add(new Actividades(8, 18, "Visita plaza de armas"));
         tour.add(new Tour("Tacna", b, "Tour de Santa Rosa Lima"));
     }
-
-    public List<Tour> data(){
-        return tour;
-    }
-    
-    public int obtenerPosicion(int codigo){
-        int pos=-1;
-        for (int i = 0; i < tamanio(); i++) {
-            if(tour.get(i).getCodigo()==codigo){
-                pos=i; break;
-            }
-        }
-        return pos;
-    }
-
-    public int tamanio(){
-        return tour.size();
-    }
-    @Override
-    public void agregar(Tour t) {
-        tour.add(t);
-    }
-
-    @Override
-    public void actualizar(int pos, Tour t) {
-        tour.set(pos, t);
-    }
-
-    @Override
-    public void eliminar(int pos) {
-        tour.remove(pos);
-    }
-
-    @Override
-    public Tour buscar(int pos) {
-        return tour.get(pos);
-    }
-
-    
+ 
 }

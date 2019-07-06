@@ -1,31 +1,30 @@
 package clases;
-
-import Arreglo.ArregloVuelo;
-import interfaces.iMantenedor;
 import java.util.List;
 
 /**
  *
  * @author Lesly
  */
-public class Vuelo extends Servicio implements iMantenedor<Vuelo> {
+public class Vuelo extends Servicio{
 
     private int codigo;
     private String aerolinea;
+    private String origen;
     private String destino;
     private String fecha;
     private int hora;
     private int cant_asientos;
     static int cuenta = 1001;
 
-    public Vuelo(String aerolinea, String destino, String fecha, int hora, int cant_asientos, String nombre) {
+    public Vuelo(int codigo, String aerolinea, String origen, String destino, String fecha, int hora, int cant_asientos, String nombre) {
         super(nombre);
-        this.codigo = cuenta++;
+        this.codigo = codigo;
         this.aerolinea = aerolinea;
+        this.origen = origen;
         this.destino = destino;
         this.fecha = fecha;
         this.hora = hora;
-        this.cant_asientos = cant_asientos;
+        this.cant_asientos =cuenta++;
     }
 
     @Override
@@ -39,6 +38,14 @@ public class Vuelo extends Servicio implements iMantenedor<Vuelo> {
 
     public void setAerolinea(String aerolinea) {
         this.aerolinea = aerolinea;
+    }
+
+    public String getOrigen() {
+        return origen;
+    }
+
+    public void setOrigen(String origen) {
+        this.origen = origen;
     }
 
     public String getDestino() {
@@ -81,54 +88,6 @@ public class Vuelo extends Servicio implements iMantenedor<Vuelo> {
         this.codigo = codigo;
     }
 
-    /* metodos */
-    /* objVuelo es el objeto que se crea */
-    ArregloVuelo objVuelo = new ArregloVuelo();
-    List<Vuelo> vuelo = objVuelo.data();
-
-    /* PARA LISTAR LOS VUELOS */
-    public List<Vuelo> data() {
-        return vuelo;
-    }
-    /*metodo obtener la posicion por medio del codigo d evuelo*/
-    public int obtenerPosicion(int codigo) {
-        int pos = -1;
-        for (int i = 0; i < tamanio(); i++) {
-            if (vuelo.get(i).getCodigo() == codigo) {
-                pos = i;
-                break;
-            }
-        }
-        return pos;
-    }
-    /* obtener el tamaño de la lista*/
-    public int tamanio() {
-        return vuelo.size();
-    }
-    
-    /*METODOS DEL CRUD*/
-    /* PARA AGREGAR UN NUEVO VUELO */
-    @Override
-    public void agregar(Vuelo t) {
-        objVuelo.agregar(t);
-    }
-
-    /* PARA ACTUALIZAR LOS VUELOS */
-    @Override
-    public void actualizar(int pos, Vuelo t) {
-        objVuelo.actualizar(pos, t);
-    }
-    
-    /*ELIMINAR UN VUELO*/
-    @Override
-    public void eliminar(int codigo) {
-        objVuelo.eliminar(objVuelo.obtenerPosicion(codigo));
-    }
-    
-    /* BUSCAR UN VUELO*/
-    @Override
-    public Vuelo buscar(int pos) {
-        return objVuelo.buscar(pos);
-    }
+   
     
 }

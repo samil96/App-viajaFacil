@@ -1,9 +1,8 @@
 package Arreglo;
 import clases.*;
-import interfaces.iMantenedor;
 import java.util.*;
 
-public class ArregloHotel implements iMantenedor<Hotel>{
+public class ArregloHotel{
     private List<Hotel> hot;
     
     public ArregloHotel(){
@@ -36,42 +35,6 @@ public class ArregloHotel implements iMantenedor<Hotel>{
         h.add(new Habitacion(702, "Libre"));
         h.add(new Habitacion(606, "Libre"));
         hot.add(new Hotel(4, "Arequipa", h, "Casa Andina Premium"));
-    }
-    
-    public int obtenerPosicion(int codigo){
-        int pos=-1;
-        for (int i = 0; i < tamanio(); i++) {
-            if(hot.get(i).getCodigo()==codigo){
-                pos=i; break;
-            }
-        }
-        return pos;
-    }
-    public List<Hotel> data(){
-        return hot;
-    }
-    public int tamanio(){
-        return hot.size();
-    }
-
-    @Override
-    public void agregar(Hotel t) {
-        hot.add(t);
-    }
-
-    @Override
-    public void actualizar(int pos, Hotel t) {
-        hot.set(pos, t);
-    }
-
-    @Override
-    public void eliminar(int pos) {
-        hot.remove(pos);
-    }
-
-    @Override
-    public Hotel buscar(int pos) {
-        return hot.get(pos);
     }
     
 }
