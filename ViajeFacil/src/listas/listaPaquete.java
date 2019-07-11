@@ -1,5 +1,6 @@
 
 package listas;
+import Arreglo.ArregloPaquetes;
 import clases.Paquete;
 import interfaces.iMantenedor;
 import java.util.List;
@@ -8,7 +9,8 @@ import java.util.List;
  * @author Lesly
  */
 public class listaPaquete implements iMantenedor<Paquete> {
-    private List<Paquete> paq;
+    ArregloPaquetes obj=new ArregloPaquetes();
+    private List<Paquete> paq=obj.getPaq();
     
     public List<Paquete> data(){
         return paq;

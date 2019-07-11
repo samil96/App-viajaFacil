@@ -23,5 +23,13 @@ public class ArregloPaquetes{
         paq.add(new Paquete(1954.90, 1001, 1004, 1002, "incluye comidas y bebidas en los campamentos"));
         
     }
+
+    public List<Paquete> getPaq() {
+        return paq;
+    }
+
+    public void setPaq(List<Paquete> paq) {
+        this.paq = paq;
+    }
  
 }

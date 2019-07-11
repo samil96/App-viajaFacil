@@ -7,7 +7,9 @@ package vista;
 
 import Arreglo.ArregloHotel;
 import clases.Hotel;
+import clases.Paquete;
 import javax.swing.table.DefaultTableModel;
+import listas.listaPaquete;
 
 /**
  *
@@ -15,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FormPaquetes extends javax.swing.JInternalFrame {
 
-    ArregloHotel obj=new ArregloHotel();
+    listaPaquete obj= new listaPaquete();
     public FormPaquetes() {
         initComponents();
     }
@@ -85,6 +87,11 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
         jLabel4.setText("PRECIO:");
 
         jButton1.setText("BUSCAR");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("SERVICIOS:"));
 
@@ -129,6 +136,11 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
         );
 
         jButton2.setText("LISTAR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("AGREGAR");
 
@@ -437,13 +449,13 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListarVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarVuelosActionPerformed
-        DefaultTableModel dt=(DefaultTableModel)tableVuelo.getModel();
-        dt.setRowCount(0);
-        for(Hotel j: obj.data()){
-            if(j instanceof Hotel){}
-            Object v[]={j.getNombre(),j.getCategoria(),j.getHabitaciones().size()};
-            dt.addRow(v);
-        }
+//        DefaultTableModel dt=(DefaultTableModel)tableVuelo.getModel();
+//        dt.setRowCount(0);
+//        for(Hotel j: obj.data()){
+//            if(j instanceof Hotel){}
+//            Object v[]={j.getNombre(),j.getCategoria(),j.getHabitaciones().size()};
+//            dt.addRow(v);
+//        }
     }//GEN-LAST:event_btnListarVuelosActionPerformed
 
     private void btnBuscarVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVuelosActionPerformed
@@ -466,6 +478,26 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
     private void btnListarToursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarToursActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnListarToursActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        DefaultTableModel dt=(DefaultTableModel)jTable1.getModel();
+        dt.setRowCount(0);
+        for(Paquete p: obj.data()){
+            Object v[]={p.getCod_Paquete(), p.getCod_vuelo(), p.getCod_tour(), p.getCod_hotel(), p.getPrecio()};
+            dt.addRow(v);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int cod=Integer.parseInt(jTextField1.getText());
+        Paquete p=obj.buscar(obj.obtenerPosicion(cod));
+        jTextField2.setText(p.getDetalle());
+        jTextField3.setText(""+p.getCod_vuelo());
+        jTextField4.setText(""+p.getCod_tour());
+        jTextField5.setText(""+p.getCod_hotel());
+        jTextField6.setText(""+p.getPrecio());
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
