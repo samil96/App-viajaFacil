@@ -1,6 +1,7 @@
 
 package listas;
 
+import Arreglo.ArregloVuelo;
 import clases.Vuelo;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,13 +12,14 @@ import interfaces.iMantenedor;
  * @author Lesly
  */
 public class listaVuelo  implements iMantenedor<Vuelo>{
-    private List<Vuelo> vuelo;
+    ArregloVuelo objv= new ArregloVuelo();
+    private List<Vuelo> vuelo = objv.getVuelo();
     
     public listaVuelo(){
         vuelo = new ArrayList();    
     }
     
-    /* PARA LISTAR LOS VUELOS */
+    /* PARA LISTAR LOS VUELOS  DE LA DATA */
     public List<Vuelo> data() {
         return vuelo;
     }
@@ -37,7 +39,7 @@ public class listaVuelo  implements iMantenedor<Vuelo>{
         return vuelo.size();
     }
 
-    /* PARA AGRAGR UN NUEVO VUELO - vue es la variable cuando se añado se guardara ahi */
+    /* PARA AGREGAR UN NUEVO VUELO - vue es la variable cuando se añado se guardara ahi */
     @Override
     public void agregar(Vuelo t) {
         vuelo.add(t);
