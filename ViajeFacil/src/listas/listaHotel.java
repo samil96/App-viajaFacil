@@ -2,6 +2,7 @@
 
 package listas;
 
+import Arreglo.ArregloHotel;
 import clases.Hotel;
 import java.util.List;
 import interfaces.iMantenedor;
@@ -11,7 +12,8 @@ import interfaces.iMantenedor;
  * @author Lesly
  */
 public class listaHotel implements iMantenedor<Hotel>{
-    private List<Hotel> hotel;
+    ArregloHotel objv = new ArregloHotel();
+    private List<Hotel> hotel= objv.getHot();
     
     public int obtenerPosicion(int codigo){
         int pos=-1;

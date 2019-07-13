@@ -19,6 +19,20 @@ public class ArregloHabitacion implements iMantenedor<Habitacion>{
 
     public ArregloHabitacion() {
         habi = new ArrayList();
+        habi.add(new Habitacion(701, "Libre"));
+        habi.add(new Habitacion(605, "Libre"));
+        habi.add(new Habitacion(707, "Libre"));
+        habi.add(new Habitacion(607, "Libre"));
+        habi.add(new Habitacion(706, "Libre"));
+        habi.add(new Habitacion(601, "Libre"));
+        habi.add(new Habitacion(705, "Libre"));
+        habi.add(new Habitacion(602, "Libre"));
+        habi.add(new Habitacion(704, "Libre"));
+        habi.add(new Habitacion(603, "Libre"));
+        habi.add(new Habitacion(703, "Libre"));
+        habi.add(new Habitacion(604, "Libre"));
+        habi.add(new Habitacion(702, "Libre"));
+        habi.add(new Habitacion(606, "Libre"));
     }
     public int obtenerPosicion(int codigo){
         int pos=-1;

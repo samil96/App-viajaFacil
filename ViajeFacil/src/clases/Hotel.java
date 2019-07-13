@@ -9,14 +9,16 @@ import java.util.List;
 public class Hotel extends Servicio {
 
     private int codigo;
+    private String nomHotel;
     private int categoria;
     private String lugar;
     private List habitaciones;
     static int cuenta = 1001;
 
-    public Hotel(int categoria, String lugar, List habitaciones, String nombre) {
+    public Hotel(String nomHotel,int categoria, String lugar, List habitaciones, String nombre) {
         super(nombre);
         this.codigo = cuenta++;
+        this.nomHotel = nomHotel;
         this.categoria = categoria;
         this.lugar = lugar;
         this.habitaciones = habitaciones;
@@ -26,7 +28,13 @@ public class Hotel extends Servicio {
     public double calcularCostoServicio() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    public String getNomHotel() {
+        return nomHotel;
+    }
 
+    public void setNomHotel(String nomHotel) {
+        this.nomHotel = nomHotel;
+    }
     public int getCategoria() {
         return categoria;
     }

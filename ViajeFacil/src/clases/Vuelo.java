@@ -18,13 +18,13 @@ public class Vuelo extends Servicio{
 
     public Vuelo(int codigo, String aerolinea, String origen, String destino, String fecha, int hora, int cant_asientos, String nombre) {
         super(nombre);
-        this.codigo = codigo;
+        this.codigo = cuenta++;
         this.aerolinea = aerolinea;
         this.origen = origen;
         this.destino = destino;
         this.fecha = fecha;
         this.hora = hora;
-        this.cant_asientos =cuenta++;
+        this.cant_asientos =cant_asientos;
     }
 
     @Override
