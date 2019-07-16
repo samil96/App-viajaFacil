@@ -1,6 +1,7 @@
 
 package listas;
 
+import Arreglo.ArregloTour;
 import clases.Tour;
 import java.util.List;
 import interfaces.iMantenedor;
@@ -10,7 +11,8 @@ import interfaces.iMantenedor;
  * @author Lesly
  */
 public class listaTour implements iMantenedor<Tour>{
-     private List<Tour> tour;
+    ArregloTour objT=new ArregloTour();
+    private List<Tour> tour=objT.getTour();
      
       public List<Tour> data(){
         return tour;

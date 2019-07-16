@@ -12,9 +12,9 @@ import java.util.List;
 
 /**
  *
- * @author FRANK
+ * @author Lesly
  */
-public class ArregloViajero implements iMantenedor<Viajero>{
+public class ArregloViajero{
     private List<Viajero> viajero;
 
     public ArregloViajero() {
@@ -24,41 +24,13 @@ public class ArregloViajero implements iMantenedor<Viajero>{
         viajero.add(new Viajero("Lesly", "Samaritano", 98765432, "951236478"));
         viajero.add(new Viajero("Valia", "Vicuña", 11112222, "987412365"));
     }
-    public List<Viajero> data(){
+
+    public List<Viajero> getViajero() {
         return viajero;
     }
+
+    public void setViajero(List<Viajero> viajero) {
+        this.viajero = viajero;
+    }
     
-    public int obtenerPosicion(int dni){
-        int pos=-1;
-        for (int i = 0; i < tamanio(); i++) {
-            if(viajero.get(i).getDni()==dni){
-                pos=i; break;
-            }
-        }
-        return pos;
-    }
-
-    public int tamanio(){
-        return viajero.size();
-    }
-
-    @Override
-    public void agregar(Viajero t) {
-        viajero.add(t);
-    }
-
-    @Override
-    public void actualizar(int pos, Viajero t) {
-        viajero.set(pos, t);
-    }
-
-    @Override
-    public void eliminar(int pos) {
-        viajero.remove(pos);
-    }
-
-    @Override
-    public Viajero buscar(int pos) {
-        return viajero.get(pos);
-    }
 }

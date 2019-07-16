@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  *
- * @author Nuria
+ * @author Frank y Lesly
  */
 public class ArregloTour{
     private List<Tour> tour;
@@ -32,6 +32,14 @@ public class ArregloTour{
         b.add(new Actividades(8, 18, "visita museo de lima"));
         b.add(new Actividades(8, 18, "Visita plaza de armas"));
         tour.add(new Tour("Tacna", b, "Tour de Santa Rosa Lima"));
+    }
+
+    public List<Tour> getTour() {
+        return tour;
+    }
+
+    public void setTour(List<Tour> tour) {
+        this.tour = tour;
     }
  
 }
