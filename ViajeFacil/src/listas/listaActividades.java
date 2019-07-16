@@ -1,6 +1,7 @@
 
 package listas;
 
+import Arreglo.ArregloActividades;
 import clases.Actividades;
 import java.util.List;
 import interfaces.iMantenedor;
@@ -11,7 +12,12 @@ import java.util.ArrayList;
  * @author Lesly
  */
 public class listaActividades implements iMantenedor<Actividades>{
-    private List<Actividades> activ;
+    ArregloActividades obja = new ArregloActividades();
+    private List<Actividades> activ = obja.getActi();
+    
+    public List<Actividades> data(){
+        return activ;
+    }
     
     public listaActividades() {
         activ = new ArrayList();
@@ -26,9 +32,7 @@ public class listaActividades implements iMantenedor<Actividades>{
         }
         return pos;
     }
-    public List<Actividades> data(){
-        return activ;
-    }
+ 
     public int tamanio(){
         return activ.size();
     }

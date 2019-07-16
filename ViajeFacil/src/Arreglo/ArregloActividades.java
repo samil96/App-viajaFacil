@@ -8,14 +8,25 @@ import clases.Actividades;
 
 /**
  *
- * @author FRANK
+ * @author Lesly
  */
 public class ArregloActividades{
 
-    private List<Actividades> lista;
+    private List<Actividades> acti;
 
     public ArregloActividades() {
-        lista = new ArrayList();
+        acti = new ArrayList();
+        acti.add(new Actividades(8, 18, "visita al templo del sol"));
+        acti.add(new Actividades(8, 18, "caminata a Pacaymayo"));
+        acti.add(new Actividades(8, 18, "Visita plaza de armas"));
     }
 
+    public List<Actividades> getActi() {
+        return acti;
+    }
+
+    public void setActi(List<Actividades> acti) {
+        this.acti = acti;
+    }
+    
 }

@@ -139,7 +139,7 @@
                       <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton3" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="464" max="32767" attributes="0"/>
+                  <EmptySpace pref="468" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -370,11 +370,13 @@
             <Component class="javax.swing.JTable" name="tableVuelo">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="4">
+                  <Table columnCount="6" rowCount="4">
                     <Column editable="true" title="CODIGO" type="java.lang.Object"/>
-                    <Column editable="true" title="NOMBRE" type="java.lang.Object"/>
-                    <Column editable="true" title="CATEGORIA" type="java.lang.Object"/>
-                    <Column editable="true" title="HABITACION" type="java.lang.Object"/>
+                    <Column editable="true" title="AREOLINEA" type="java.lang.Object"/>
+                    <Column editable="true" title="FECHA" type="java.lang.Object"/>
+                    <Column editable="true" title="HORA" type="java.lang.Object"/>
+                    <Column editable="true" title="DESTINO" type="java.lang.Object"/>
+                    <Column editable="true" title="N&#xba; ASIENTOS" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
