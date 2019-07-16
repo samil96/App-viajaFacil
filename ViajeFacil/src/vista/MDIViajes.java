@@ -115,6 +115,11 @@ public class MDIViajes extends javax.swing.JFrame {
 
         Itours.setMnemonic('d');
         Itours.setText("Tours");
+        Itours.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ItoursActionPerformed(evt);
+            }
+        });
         editMenu.add(Itours);
 
         menuBar.add(editMenu);
@@ -203,6 +208,12 @@ public class MDIViajes extends javax.swing.JFrame {
         verFormHoteles.setVisible(true);
         desktopPane.add(verFormHoteles);
     }//GEN-LAST:event_IhotelesActionPerformed
+
+    private void ItoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ItoursActionPerformed
+        FormTour verFormTour = new FormTour();
+        verFormTour.setVisible(true);
+        desktopPane.add(verFormTour);
+    }//GEN-LAST:event_ItoursActionPerformed
 
     /**
      * @param args the command line arguments

@@ -7,13 +7,15 @@ package clases;
  */
 public class Actividades {
     private int codActividad;
+    private int cod_tour;
     private int hora_inicio;
     private int hora_fin;
     private String detalle;
     static int cuenta=1001;
 
-    public Actividades(int hora_inicio, int hora_fin, String detalle) {
+    public Actividades(int cod_tour, int hora_inicio, int hora_fin, String detalle) {
         this.codActividad = cuenta++;
+        this.cod_tour = cod_tour;
         this.hora_inicio = hora_inicio;
         this.hora_fin = hora_fin;
         this.detalle = detalle;
@@ -49,6 +51,14 @@ public class Actividades {
 
     public void setDetalle(String detalle) {
         this.detalle = detalle;
+    }
+
+    public int getCod_tour() {
+        return cod_tour;
+    }
+
+    public void setCod_tour(int cod_tour) {
+        this.cod_tour = cod_tour;
     }
     
 }

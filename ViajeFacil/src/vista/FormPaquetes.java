@@ -70,6 +70,7 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
         txtCodTours = new javax.swing.JTextField();
 
         setClosable(true);
+        setIconifiable(true);
         setMaximizable(true);
         setTitle("VentanaPaquetes");
         setVisible(true);
@@ -309,7 +310,7 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "CODIGO", "NOMBRE", "CATEGORIA", "HABITACION"
+                "CODIGO", "NOMBRE", "DESTINO", "N° ACTIVIDADES"
             }
         ));
         jScrollPane4.setViewportView(tableTour);
@@ -456,7 +457,7 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
     private void btnBuscarVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVuelosActionPerformed
         int cod=Integer.parseInt(txtCodVuelos.getText());
         Vuelo vu=objv.buscar(objv.obtenerPosicion(cod));
-        limpiaTabla();
+        limpiaTablaVuelo();
         if(vu.getCodigo()==cod)
         tableVuelo.setValueAt(vu.getCodigo(),0,0);
         tableVuelo.setValueAt(vu.getAerolinea(),0,1);
@@ -471,7 +472,7 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
         
         int cod=Integer.parseInt(txtCodHoteles.getText());
         Hotel h=objh.buscar(objh.obtenerPosicion(cod));
-        limpiaTabla();
+        limpiaTablaHotel();
         if(h.getCodigo()==cod)
         tableHotel.setValueAt(h.getCodigo(), 0, 0);
         tableHotel.setValueAt(h.getNombre(), 0, 1);
@@ -490,11 +491,23 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnListarHotelesActionPerformed
 
     private void btnBuscarToursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarToursActionPerformed
-        // TODO add your handling code here:
+        int cod=Integer.parseInt(txtCodTours.getText());
+        Tour t=objt.buscar(objt.obtenerPosicion(cod));
+        limpiaTablaTour();
+        if(t.getCodigo()==cod)
+        tableTour.setValueAt(t.getCodigo(), 0, 0);
+        tableTour.setValueAt(t.getNombre(), 0, 1);
+        tableTour.setValueAt(t.getDestino(), 0, 2);
+//        tableTour.setValueAt(t.getArrayActividades().size(), 0, 3);
     }//GEN-LAST:event_btnBuscarToursActionPerformed
 
     private void btnListarToursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarToursActionPerformed
-        
+        DefaultTableModel dt=(DefaultTableModel)tableTour.getModel();
+        dt.setRowCount(0);
+        for(Tour t: objt.data()){
+            Object v[]={t.getCodigo(), t.getNombre(), t.getDestino(), /*t.getArrayActividades().size()*/};
+            dt.addRow(v);
+        }
     }//GEN-LAST:event_btnListarToursActionPerformed
 
     private void btnListarPaquetesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarPaquetesActionPerformed
@@ -518,10 +531,24 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBuscarPaquetesActionPerformed
     
     /*metodos */
-    private void limpiaTabla(){
+    private void limpiaTablaHotel(){
         for(int i=0;i<tableHotel.getRowCount();i++){
             for(int c=0;c<tableHotel.getColumnCount();c++){
                 tableHotel.setValueAt("", i, c);
+            }
+        }
+    }
+    private void limpiaTablaVuelo(){
+        for(int i=0;i<tableVuelo.getRowCount();i++){
+            for(int c=0;c<tableVuelo.getColumnCount();c++){
+                tableVuelo.setValueAt("", i, c);
+            }
+        }
+    }
+    private void limpiaTablaTour(){
+        for(int i=0;i<tableTour.getRowCount();i++){
+            for(int c=0;c<tableTour.getColumnCount();c++){
+                tableTour.setValueAt("", i, c);
             }
         }
     }

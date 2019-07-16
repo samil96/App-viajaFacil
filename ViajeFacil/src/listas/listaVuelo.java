@@ -15,9 +15,6 @@ public class listaVuelo  implements iMantenedor<Vuelo>{
     ArregloVuelo objv= new ArregloVuelo();
     private List<Vuelo> vuelo = objv.getVuelo();
     
-    public listaVuelo(){
-        vuelo = new ArrayList();    
-    }
     
     /* PARA LISTAR LOS VUELOS  DE LA DATA */
     public List<Vuelo> data() {

@@ -18,10 +18,6 @@ public class listaActividades implements iMantenedor<Actividades>{
     public List<Actividades> data(){
         return activ;
     }
-    
-    public listaActividades() {
-        activ = new ArrayList();
-    }
 
     public int obtenerPosicion(int codigo){
         int pos=-1;
@@ -31,6 +27,16 @@ public class listaActividades implements iMantenedor<Actividades>{
             }
         }
         return pos;
+    }
+    public List<Actividades> datosporTour(int cod_tour){
+        List<Actividades> lista=new ArrayList<>();
+        for (int i = 0; i < tamanio(); i++) {
+            if(activ.get(i).getCod_tour()==cod_tour){
+                Actividades x=activ.get(i);
+                lista.add(x);
+            }
+        }
+        return lista;
     }
  
     public int tamanio(){
