@@ -65,6 +65,8 @@ public class FormTour extends javax.swing.JInternalFrame {
         txDestinoTour = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblTours = new javax.swing.JTable();
+        jLabel11 = new javax.swing.JLabel();
+        txNumActividades = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -98,6 +100,13 @@ public class FormTour extends javax.swing.JInternalFrame {
             }
         ));
         jScrollPane2.setViewportView(tblActividades);
+        if (tblActividades.getColumnModel().getColumnCount() > 0) {
+            tblActividades.getColumnModel().getColumn(0).setMaxWidth(100);
+            tblActividades.getColumnModel().getColumn(1).setMinWidth(80);
+            tblActividades.getColumnModel().getColumn(1).setMaxWidth(100);
+            tblActividades.getColumnModel().getColumn(2).setMinWidth(80);
+            tblActividades.getColumnModel().getColumn(2).setMaxWidth(100);
+        }
 
         jLabel5.setText("CODIGO TOUR:");
 
@@ -266,6 +275,8 @@ public class FormTour extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tblTours);
 
+        jLabel11.setText("N° ACTIVIDADES:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -295,7 +306,11 @@ public class FormTour extends javax.swing.JInternalFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addGap(94, 94, 94)
-                                        .addComponent(txDestinoTour)))
+                                        .addComponent(txDestinoTour))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel11)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txNumActividades, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(BTNBUSCATOUR, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -336,7 +351,10 @@ public class FormTour extends javax.swing.JInternalFrame {
                             .addComponent(txDestinoTour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BTNACTUALIZATOUR))
                         .addGap(18, 18, 18)
-                        .addComponent(BTNLISTATOUR)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BTNLISTATOUR)
+                            .addComponent(jLabel11)
+                            .addComponent(txNumActividades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnListaActividadesTour)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -365,7 +383,8 @@ public class FormTour extends javax.swing.JInternalFrame {
     private void BTNAGREGATOURActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNAGREGATOURActionPerformed
         String nombre=txNombreTour.getText();
         String destino=txDestinoTour.getText();
-        Tour x=new Tour(destino, nombre);
+        int num_activid=Integer.parseInt(txNumActividades.getText());
+        Tour x=new Tour(destino,num_activid, nombre);
         tours.agregar(x);
         limpiarCamposTour();
         listarTour();
@@ -396,9 +415,11 @@ public class FormTour extends javax.swing.JInternalFrame {
         int pos=tours.obtenerPosicion(Integer.parseInt(txCodTour.getText()));
         String nombre=txNombreTour.getText();
         String destino=txDestinoTour.getText();
+        int num_activid=Integer.parseInt(txNumActividades.getText());
         Tour x=tours.buscar(pos);
         x.setNombre(nombre);
         x.setDestino(destino);
+        x.setNum_Actividades(num_activid);
         tours.actualizar(pos, x);
         limpiarCamposTour();
         listarTour();
@@ -442,7 +463,7 @@ public class FormTour extends javax.swing.JInternalFrame {
         DefaultTableModel dt=(DefaultTableModel)tblTours.getModel();
         dt.setRowCount(0);
         for(Tour x: tours.data()){
-            Object v[]={x.getCodigo(), x.getNombre(), x.getDestino(), /*x.getArrayActividades().size()*/};
+            Object v[]={x.getCodigo(), x.getNombre(), x.getDestino(), x.getNum_Actividades()};
             dt.addRow(v);
         }
     }
@@ -457,6 +478,7 @@ public class FormTour extends javax.swing.JInternalFrame {
     void limpiarCamposTour(){
         txCodTour.setText("");txCodTour.requestFocus();
         txNombreTour.setText("");txDestinoTour.setText("");
+        txNumActividades.setText("");
     }
     void limpiarCamposActividad(){
         txCodActividad.setText("");
@@ -480,6 +502,7 @@ public class FormTour extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnUpdateActi;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -501,5 +524,6 @@ public class FormTour extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txHoraFinActividad;
     private javax.swing.JTextField txHoraInActividad;
     private javax.swing.JTextField txNombreTour;
+    private javax.swing.JTextField txNumActividades;
     // End of variables declaration//GEN-END:variables
 }

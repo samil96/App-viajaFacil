@@ -29,7 +29,21 @@ public class Vuelo extends Servicio{
 
     @Override
     public double calcularCostoServicio() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        double costo=0;
+        if (destino.compareToIgnoreCase("cusco")==0) {
+            costo=180;
+        } else {
+            if (destino.compareToIgnoreCase("arequipa")==0) {
+                costo=100;
+            } else {
+                if (destino.compareToIgnoreCase("tacna")==0) {
+                    costo=95.5;
+                } else {
+                    costo=79.9;
+                }
+            }
+        }
+        return costo;
     }
 
     public String getAerolinea() {

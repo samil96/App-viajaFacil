@@ -26,7 +26,13 @@ public class Hotel extends Servicio {
 
     @Override
     public double calcularCostoServicio() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        double costo=0;
+        if (categoria==1) costo=80;
+        if (categoria==2) costo=90;
+        if (categoria==3) costo=100;
+        if (categoria==4) costo=150;
+        if (categoria==5) costo=180;
+        return costo;
     }
     public String getNomHotel() {
         return nomHotel;

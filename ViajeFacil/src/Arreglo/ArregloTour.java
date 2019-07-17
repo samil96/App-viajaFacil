@@ -19,9 +19,9 @@ public class ArregloTour{
 
     public ArregloTour() {
         tour=new ArrayList();
-        tour.add(new Tour("Cusco", "Tour del Sol"));
-        tour.add(new Tour("Cusco", "Camino Inca"));
-        tour.add(new Tour("Tacna", "Tour de Santa Rosa Lima"));
+        tour.add(new Tour("Cusco",2, "Tour del Sol"));
+        tour.add(new Tour("Cusco",2, "Camino Inca"));
+        tour.add(new Tour("Tacna",2, "Tour de Santa Rosa Lima"));
     }
 
     public List<Tour> getTour() {
