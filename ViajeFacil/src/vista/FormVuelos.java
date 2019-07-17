@@ -92,9 +92,9 @@ public class FormVuelos extends javax.swing.JInternalFrame {
 
         cmbxDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ELEGIR", "AREQUIPA", "CUSCO", "TACNA", "TARAPOTO", " " }));
         getContentPane().add(cmbxDestino);
-        cmbxDestino.setBounds(301, 209, 139, 20);
+        cmbxDestino.setBounds(301, 209, 139, 30);
         getContentPane().add(txtFecha);
-        txtFecha.setBounds(301, 250, 139, 20);
+        txtFecha.setBounds(301, 250, 139, 30);
 
         jLabel1.setBackground(new java.awt.Color(255, 102, 102));
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei", 1, 30)); // NOI18N
@@ -102,14 +102,14 @@ public class FormVuelos extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(310, 10, 120, 40);
         getContentPane().add(txtHora);
-        txtHora.setBounds(323, 291, 117, 20);
+        txtHora.setBounds(323, 291, 117, 30);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("CÓDIGO:");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(103, 93, 64, 17);
         getContentPane().add(txtAsientos);
-        txtAsientos.setBounds(301, 331, 139, 20);
+        txtAsientos.setBounds(301, 331, 139, 30);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("NOMBRE AEROLINEA:");
@@ -154,7 +154,7 @@ public class FormVuelos extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnListarVuelos);
-        btnListarVuelos.setBounds(60, 370, 121, 59);
+        btnListarVuelos.setBounds(100, 360, 121, 59);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("HORA:");
@@ -192,9 +192,9 @@ public class FormVuelos extends javax.swing.JInternalFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(80, 440, 580, 220);
         getContentPane().add(txtCodVuelo);
-        txtCodVuelo.setBounds(346, 93, 94, 20);
+        txtCodVuelo.setBounds(346, 93, 94, 30);
         getContentPane().add(txtNombreAreolinea);
-        txtNombreAreolinea.setBounds(278, 134, 162, 20);
+        txtNombreAreolinea.setBounds(278, 134, 162, 30);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("ORIGEN:");
@@ -209,7 +209,7 @@ public class FormVuelos extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(301, 170, 139, 20);
+        jTextField1.setBounds(301, 170, 139, 30);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(0, 64, 1380, 10);
 
@@ -253,11 +253,11 @@ public class FormVuelos extends javax.swing.JInternalFrame {
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(850, 410, 452, 200);
         getContentPane().add(txtcodasiento);
-        txtcodasiento.setBounds(1010, 130, 90, 20);
+        txtcodasiento.setBounds(1010, 120, 90, 30);
         getContentPane().add(txtcodvueas);
-        txtcodvueas.setBounds(1010, 170, 90, 20);
+        txtcodvueas.setBounds(1010, 160, 90, 30);
         getContentPane().add(txtestadoasiento);
-        txtestadoasiento.setBounds(1010, 210, 90, 20);
+        txtestadoasiento.setBounds(1010, 200, 90, 30);
 
         btnAgregarAsiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/agregar.png"))); // NOI18N
         btnAgregarAsiento.setText("AGREGAR");

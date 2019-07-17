@@ -49,6 +49,7 @@ public class FormClientes extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
 
+        setBackground(new java.awt.Color(102, 153, 255));
         setClosable(true);
         setMaximizable(true);
         setTitle("VentanaClientes");
@@ -63,7 +64,7 @@ public class FormClientes extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnBuscarCliente);
-        btnBuscarCliente.setBounds(430, 92, 140, 23);
+        btnBuscarCliente.setBounds(430, 92, 140, 59);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("NOMBRES:");
@@ -78,7 +79,7 @@ public class FormClientes extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnRegistrarCliente);
-        btnRegistrarCliente.setBounds(430, 150, 140, 23);
+        btnRegistrarCliente.setBounds(430, 150, 140, 59);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("APELLIDOS:");
@@ -119,22 +120,22 @@ public class FormClientes extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnListarCliente);
-        btnListarCliente.setBounds(60, 360, 130, 50);
+        btnListarCliente.setBounds(80, 360, 130, 50);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("TELÉFONO:");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(80, 300, 81, 17);
         getContentPane().add(txtCodCliente);
-        txtCodCliente.setBounds(293, 111, 74, 20);
+        txtCodCliente.setBounds(293, 101, 74, 30);
         getContentPane().add(txtNombreCliente);
-        txtNombreCliente.setBounds(200, 160, 174, 20);
+        txtNombreCliente.setBounds(200, 150, 174, 30);
         getContentPane().add(txtApellidosCliente);
-        txtApellidosCliente.setBounds(200, 210, 174, 20);
+        txtApellidosCliente.setBounds(200, 200, 174, 30);
         getContentPane().add(txtDNI);
         txtDNI.setBounds(270, 250, 102, 20);
         getContentPane().add(txtTelefono);
-        txtTelefono.setBounds(250, 300, 119, 20);
+        txtTelefono.setBounds(250, 290, 119, 30);
 
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei", 1, 30)); // NOI18N
         jLabel1.setText("CLIENTES");
@@ -149,7 +150,7 @@ public class FormClientes extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnActualizarCliente);
-        btnActualizarCliente.setBounds(430, 270, 95, 23);
+        btnActualizarCliente.setBounds(430, 270, 160, 59);
 
         btnEliminarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/delete.png"))); // NOI18N
         btnEliminarCliente.setText("ELIMINAR");
@@ -159,7 +160,7 @@ public class FormClientes extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnEliminarCliente);
-        btnEliminarCliente.setBounds(430, 210, 140, 23);
+        btnEliminarCliente.setBounds(430, 210, 140, 59);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(0, 70, 640, 2);
         getContentPane().add(jSeparator2);

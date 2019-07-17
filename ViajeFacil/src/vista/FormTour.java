@@ -81,6 +81,9 @@ public class FormTour extends javax.swing.JInternalFrame {
         setMaximizable(true);
         getContentPane().setLayout(null);
 
+        btnListaActividadesTour.setBackground(new java.awt.Color(204, 255, 204));
+        btnListaActividadesTour.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnListaActividadesTour.setForeground(new java.awt.Color(0, 51, 153));
         btnListaActividadesTour.setText("LISTAR ACTIVIDADES");
         btnListaActividadesTour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,7 +91,7 @@ public class FormTour extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnListaActividadesTour);
-        btnListaActividadesTour.setBounds(540, 370, 137, 23);
+        btnListaActividadesTour.setBounds(280, 280, 153, 50);
 
         BTNBUSCATOUR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/buscar.png"))); // NOI18N
         BTNBUSCATOUR.setText("BUSCAR");
@@ -129,7 +132,7 @@ public class FormTour extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(BTNLISTATOUR);
-        BTNLISTATOUR.setBounds(50, 280, 130, 50);
+        BTNLISTATOUR.setBounds(90, 280, 130, 50);
 
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei", 1, 30)); // NOI18N
         jLabel1.setText("TOURS");
@@ -177,7 +180,7 @@ public class FormTour extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(tblTours);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(50, 350, 470, 250);
+        jScrollPane1.setBounds(90, 370, 470, 250);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("N° ACTIVIDADES:");
@@ -282,7 +285,7 @@ public class FormTour extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnBuscaActividad);
-        btnBuscaActividad.setBounds(1150, 150, 140, 23);
+        btnBuscaActividad.setBounds(1150, 150, 140, 59);
 
         BTNAGREGAACTIVIDAD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/agregar.png"))); // NOI18N
         BTNAGREGAACTIVIDAD.setText("AGREGAR");
@@ -292,7 +295,7 @@ public class FormTour extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(BTNAGREGAACTIVIDAD);
-        BTNAGREGAACTIVIDAD.setBounds(1150, 210, 140, 23);
+        BTNAGREGAACTIVIDAD.setBounds(1150, 210, 140, 59);
 
         btnUpdateActi.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         btnUpdateActi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/actualizar.png"))); // NOI18N
@@ -303,7 +306,7 @@ public class FormTour extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnUpdateActi);
-        btnUpdateActi.setBounds(1150, 330, 95, 21);
+        btnUpdateActi.setBounds(1150, 330, 150, 70);
 
         btnDeleteActi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/delete.png"))); // NOI18N
         btnDeleteActi.setText("ELIMINAR");
@@ -313,7 +316,7 @@ public class FormTour extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnDeleteActi);
-        btnDeleteActi.setBounds(1150, 270, 140, 23);
+        btnDeleteActi.setBounds(1150, 270, 140, 59);
 
         btnListaActiv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/listar.png"))); // NOI18N
         btnListaActiv.setText("LISTAR");
@@ -323,7 +326,7 @@ public class FormTour extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnListaActiv);
-        btnListaActiv.setBounds(800, 380, 67, 23);
+        btnListaActiv.setBounds(800, 370, 121, 50);
 
         tblActividades.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

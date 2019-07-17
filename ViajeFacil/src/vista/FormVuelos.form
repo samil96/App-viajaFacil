@@ -67,14 +67,14 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="301" y="209" width="139" height="-1"/>
+          <AbsoluteConstraints x="301" y="209" width="139" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="txtFecha">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="301" y="250" width="139" height="-1"/>
+          <AbsoluteConstraints x="301" y="250" width="139" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -97,7 +97,7 @@
     <Component class="javax.swing.JTextField" name="txtHora">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="323" y="291" width="117" height="-1"/>
+          <AbsoluteConstraints x="323" y="291" width="117" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -117,7 +117,7 @@
     <Component class="javax.swing.JTextField" name="txtAsientos">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="301" y="331" width="139" height="-1"/>
+          <AbsoluteConstraints x="301" y="331" width="139" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -204,7 +204,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="60" y="370" width="-1" height="-1"/>
+          <AbsoluteConstraints x="100" y="360" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -281,14 +281,14 @@
     <Component class="javax.swing.JTextField" name="txtCodVuelo">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="346" y="93" width="94" height="-1"/>
+          <AbsoluteConstraints x="346" y="93" width="94" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNombreAreolinea">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="278" y="134" width="162" height="-1"/>
+          <AbsoluteConstraints x="278" y="134" width="162" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -315,7 +315,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="301" y="170" width="139" height="-1"/>
+          <AbsoluteConstraints x="301" y="170" width="139" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -440,21 +440,21 @@
     <Component class="javax.swing.JTextField" name="txtcodasiento">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="1010" y="130" width="90" height="-1"/>
+          <AbsoluteConstraints x="1010" y="120" width="90" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="txtcodvueas">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="1010" y="170" width="90" height="-1"/>
+          <AbsoluteConstraints x="1010" y="160" width="90" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="txtestadoasiento">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="1010" y="210" width="90" height="-1"/>
+          <AbsoluteConstraints x="1010" y="200" width="90" height="30"/>
         </Constraint>
       </Constraints>
     </Component>

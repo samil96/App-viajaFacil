@@ -103,7 +103,7 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(50, 120, 53, 20);
         getContentPane().add(txPrecioPaquete);
-        txPrecioPaquete.setBounds(140, 320, 104, 20);
+        txPrecioPaquete.setBounds(140, 310, 104, 40);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("PRECIO:");
@@ -185,7 +185,7 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnListarPaquetes);
-        btnListarPaquetes.setBounds(40, 370, 130, 50);
+        btnListarPaquetes.setBounds(70, 370, 130, 50);
 
         btnAgregaPaquete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/agregar.png"))); // NOI18N
         btnAgregaPaquete.setText("AGREGAR");
@@ -414,12 +414,10 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(btnListarTours, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCodTours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(btnListarTours, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCodTours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnBuscarTours, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -452,6 +450,8 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
         getContentPane().add(btnElininaPaquete);
         btnElininaPaquete.setBounds(420, 170, 140, 50);
 
+        btnCalculaPrecioPaq.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnCalculaPrecioPaq.setForeground(new java.awt.Color(204, 0, 0));
         btnCalculaPrecioPaq.setText("CALCULAR");
         btnCalculaPrecioPaq.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -459,7 +459,7 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(btnCalculaPrecioPaq);
-        btnCalculaPrecioPaq.setBounds(260, 320, 85, 20);
+        btnCalculaPrecioPaq.setBounds(260, 310, 100, 40);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setText("FILTRAR POR DESTINO:");
@@ -475,7 +475,7 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
         getContentPane().add(cbxFiltroDestino);
         cbxFiltroDestino.setBounds(950, 30, 113, 20);
         getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(0, 50, 610, 10);
+        jSeparator1.setBounds(0, 50, 610, 2);
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/activity-adventure-back-view-2106776.jpg"))); // NOI18N
         getContentPane().add(jLabel12);

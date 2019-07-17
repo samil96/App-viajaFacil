@@ -54,6 +54,7 @@ public class FormTicket extends javax.swing.JInternalFrame {
         btnLista = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(153, 204, 255));
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
@@ -120,7 +121,7 @@ public class FormTicket extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("TICKETS");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
