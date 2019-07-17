@@ -5,6 +5,7 @@ import Arreglo.ArregloTour;
 import clases.Tour;
 import java.util.List;
 import interfaces.iMantenedor;
+import java.util.ArrayList;
 
 /**
  *
@@ -26,6 +27,16 @@ public class listaTour implements iMantenedor<Tour>{
             }
         }
         return pos;
+    }
+
+    public List<Tour> datosporDestino(String destino){
+        List<Tour> lista=new ArrayList<>();
+        for (int i = 0; i < tamanio(); i++) {
+            if(tour.get(i).getDestino().compareToIgnoreCase(destino)==0){
+                lista.add(tour.get(i));
+            }
+        }
+        return lista;
     }
 
     public int tamanio(){

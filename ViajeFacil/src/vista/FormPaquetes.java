@@ -7,6 +7,7 @@ package vista;
 
 import Arreglo.*;
 import clases.*;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import listas.*;
 
@@ -72,7 +73,7 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
         btnElininaPaquete = new javax.swing.JButton();
         btnCalculaPrecioPaq = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbxFiltroDestino = new javax.swing.JComboBox<>();
 
         setClosable(true);
         setIconifiable(true);
@@ -118,9 +119,7 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
                         .addComponent(jLabel8)
                         .addGap(15, 15, 15)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txServTour, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addComponent(txServTour, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addGap(17, 17, 17)))
@@ -130,7 +129,6 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
                         .addComponent(jLabel10)
                         .addContainerGap(20, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txServHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
@@ -158,6 +156,11 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
         });
 
         btnAgregaPaquete.setText("AGREGAR");
+        btnAgregaPaquete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregaPaqueteActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -225,15 +228,15 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(btnBuscarVuelos)
                     .addComponent(btnListarVuelos)
                     .addComponent(txtCodVuelos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -297,7 +300,7 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
                     .addComponent(btnListarHoteles)
                     .addComponent(txtCodHoteles, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -362,22 +365,37 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
                     .addComponent(btnListarTours)
                     .addComponent(txtCodTours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btnActualizaPaquete.setText("ACTUALIZAR");
+        btnActualizaPaquete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizaPaqueteActionPerformed(evt);
+            }
+        });
 
         btnElininaPaquete.setText("ELIMINAR");
+        btnElininaPaquete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnElininaPaqueteActionPerformed(evt);
+            }
+        });
 
         btnCalculaPrecioPaq.setText("CALCULAR");
+        btnCalculaPrecioPaq.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalculaPrecioPaqActionPerformed(evt);
+            }
+        });
 
         jLabel11.setText("FILTRAR POR DESTINO:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ELEGIR", "AREQUIPA", "TACNA", "TARAPOTO", "CUSCO" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cbxFiltroDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ELEGIR", "AREQUIPA", "TACNA", "TARAPOTO", "CUSCO" }));
+        cbxFiltroDestino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cbxFiltroDestinoActionPerformed(evt);
             }
         });
 
@@ -434,23 +452,24 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(36, 36, 36)
-                                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel11)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(119, 119, 119))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addGap(18, 18, 18)
+                                .addComponent(cbxFiltroDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(119, 119, 119))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -459,55 +478,51 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel11)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txCodPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarPaquetes))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txDetalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAgregaPaquete))
-                .addGap(18, 18, 18)
+                    .addComponent(cbxFiltroDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txCodPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBuscarPaquetes))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(txPrecioPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCalculaPrecioPaq)))
+                            .addComponent(jLabel3)
+                            .addComponent(txDetalle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAgregaPaquete))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(txPrecioPaquete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnCalculaPrecioPaq)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnListarPaquetes)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnActualizaPaquete)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnElininaPaquete)))
+                        .addGap(57, 57, 57)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnListarPaquetes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnActualizaPaquete)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnElininaPaquete)))
-                .addGap(57, 57, 57)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(149, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnListarVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarVuelosActionPerformed
-       DefaultTableModel dt=(DefaultTableModel)tableVuelo.getModel();
-        dt.setRowCount(0);
-        for(Vuelo vu: objv.data()){
-            Object v[]={vu.getCodigo(),vu.getAerolinea(),vu.getFecha(), vu.getHora(),vu.getDestino(), vu.getCant_asientos()};
-            dt.addRow(v);
-        }
+        listarVuelo(objv.data());
     }//GEN-LAST:event_btnListarVuelosActionPerformed
 
     private void btnBuscarVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVuelosActionPerformed
@@ -538,12 +553,7 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBuscarHotelesActionPerformed
 
     private void btnListarHotelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarHotelesActionPerformed
-       DefaultTableModel dt=(DefaultTableModel)tableHotel.getModel();
-       dt.setRowCount(0);
-       for(Hotel h: objh.data()){
-            Object v[]={h.getCodigo(),h.getNombre(),h.getCategoria(),h.getHabitaciones().size()};
-            dt.addRow(v);
-        }
+        listarHotel(objh.data());
     }//GEN-LAST:event_btnListarHotelesActionPerformed
 
     private void btnBuscarToursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarToursActionPerformed
@@ -558,21 +568,11 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBuscarToursActionPerformed
 
     private void btnListarToursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarToursActionPerformed
-        DefaultTableModel dt=(DefaultTableModel)tableTour.getModel();
-        dt.setRowCount(0);
-        for(Tour t: objt.data()){
-            Object v[]={t.getCodigo(), t.getNombre(), t.getDestino(), /*t.getArrayActividades().size()*/};
-            dt.addRow(v);
-        }
+        listarTour(objt.data());
     }//GEN-LAST:event_btnListarToursActionPerformed
 
     private void btnListarPaquetesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarPaquetesActionPerformed
-        DefaultTableModel dt=(DefaultTableModel)jTable1.getModel();
-        dt.setRowCount(0);
-        for(Paquete p: obj.data()){
-            Object v[]={p.getCod_Paquete(), p.getCod_vuelo(), p.getCod_tour(), p.getCod_hotel(), p.getPrecio()};
-            dt.addRow(v);
-        }
+        listarPaquete();
     }//GEN-LAST:event_btnListarPaquetesActionPerformed
 
     private void btnBuscarPaquetesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPaquetesActionPerformed
@@ -586,9 +586,51 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_btnBuscarPaquetesActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    private void cbxFiltroDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxFiltroDestinoActionPerformed
+        String destino=(String)cbxFiltroDestino.getSelectedItem();
+        listarVuelo(objv.datosporDestino(destino));
+        listarHotel(objh.datosporDestino(destino));
+        listarTour(objt.datosporDestino(destino));
+    }//GEN-LAST:event_cbxFiltroDestinoActionPerformed
+
+    private void btnAgregaPaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregaPaqueteActionPerformed
+        String detalle=txDetalle.getText();
+        int codVuelo=Integer.parseInt(txServVuelo.getText());
+        int codHotel=Integer.parseInt(txServHotel.getText());
+        int codTour=Integer.parseInt(txServTour.getText());
+        double precio=Double.parseDouble(txPrecioPaquete.getText());
+        Paquete p=new Paquete(precio, codVuelo, codHotel, codTour, detalle);
+        obj.agregar(p);
+        listarPaquete();
+        limpiarCamposPaquete();
+    }//GEN-LAST:event_btnAgregaPaqueteActionPerformed
+
+    private void btnActualizaPaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizaPaqueteActionPerformed
+        int pos=obj.obtenerPosicion(Integer.parseInt(txCodPaquete.getText()));
+        Paquete p=obj.buscar(pos);
+        String detalle=txDetalle.getText();
+        int codVuelo=Integer.parseInt(txServVuelo.getText());
+        int codHotel=Integer.parseInt(txServHotel.getText());
+        int codTour=Integer.parseInt(txServTour.getText());
+        double precio=Double.parseDouble(txPrecioPaquete.getText());
+        p.setDetalle(detalle);p.setCod_hotel(codHotel);
+        p.setCod_tour(codTour);p.setCod_vuelo(codVuelo);
+        p.setPrecio(precio);
+        obj.actualizar(pos, p);
+        listarPaquete();
+        limpiarCamposPaquete();
+    }//GEN-LAST:event_btnActualizaPaqueteActionPerformed
+
+    private void btnElininaPaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnElininaPaqueteActionPerformed
+        int pos=obj.obtenerPosicion(Integer.parseInt(txCodPaquete.getText()));
+        obj.eliminar(pos);
+        listarPaquete();
+        limpiarCamposPaquete();
+    }//GEN-LAST:event_btnElininaPaqueteActionPerformed
+
+    private void btnCalculaPrecioPaqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculaPrecioPaqActionPerformed
+        
+    }//GEN-LAST:event_btnCalculaPrecioPaqActionPerformed
     
     /*metodos */
     private void limpiaTablaHotel(){
@@ -612,7 +654,44 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
             }
         }
     }
-    
+    void listarHotel(List<Hotel> x){
+        DefaultTableModel dt=(DefaultTableModel)tableHotel.getModel();
+        dt.setRowCount(0);
+        for(Hotel h: x){
+            Object v[]={h.getCodigo(),h.getNombre(),h.getCategoria(),h.getHabitaciones().size()};
+            dt.addRow(v);
+        }
+    }
+    void listarVuelo(List<Vuelo> x){
+        DefaultTableModel dt=(DefaultTableModel)tableVuelo.getModel();
+        dt.setRowCount(0);
+        for(Vuelo vu: x){
+            Object v[]={vu.getCodigo(),vu.getAerolinea(),vu.getFecha(), vu.getHora(),vu.getDestino(), vu.getCant_asientos()};
+            dt.addRow(v);
+        }
+    }
+    void listarTour(List<Tour> x){
+        DefaultTableModel dt=(DefaultTableModel)tableTour.getModel();
+        dt.setRowCount(0);
+        for(Tour t: x){
+            Object v[]={t.getCodigo(), t.getNombre(), t.getDestino(), t.getNum_Actividades()};
+            dt.addRow(v);
+        }
+    }
+    void listarPaquete(){
+        DefaultTableModel dt=(DefaultTableModel)jTable1.getModel();
+        dt.setRowCount(0);
+        for(Paquete p: obj.data()){
+            Object v[]={p.getCod_Paquete(), p.getCod_vuelo(), p.getCod_tour(), p.getCod_hotel(), p.getPrecio()};
+            dt.addRow(v);
+        }
+    }
+    void limpiarCamposPaquete(){
+        txCodPaquete.setText("");txDetalle.setText("");
+        txPrecioPaquete.setText("");txServHotel.setText("");
+        txServTour.setText("");txServVuelo.setText("");
+        txDetalle.requestFocus();
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -662,7 +741,7 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnListarPaquetes;
     private javax.swing.JButton btnListarTours;
     private javax.swing.JButton btnListarVuelos;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> cbxFiltroDestino;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

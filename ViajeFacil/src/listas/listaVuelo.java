@@ -31,6 +31,16 @@ public class listaVuelo  implements iMantenedor<Vuelo>{
         }
         return pos;
     }
+    
+    public List<Vuelo> datosporDestino(String destino){
+        List<Vuelo> lista=new ArrayList<>();
+        for (int i = 0; i < tamanio(); i++) {
+            if(vuelo.get(i).getDestino().compareToIgnoreCase(destino)==0){
+                lista.add(vuelo.get(i));
+            }
+        }
+        return lista;
+    }
 
     public int tamanio() {
         return vuelo.size();

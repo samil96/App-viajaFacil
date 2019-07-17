@@ -6,6 +6,7 @@ import Arreglo.ArregloHotel;
 import clases.Hotel;
 import java.util.List;
 import interfaces.iMantenedor;
+import java.util.ArrayList;
 
 /**
  *
@@ -28,6 +29,17 @@ public class listaHotel implements iMantenedor<Hotel>{
     public List<Hotel> data(){
         return hotel;
     }
+    
+    public List<Hotel> datosporDestino(String destino){
+        List<Hotel> lista=new ArrayList<>();
+        for (int i = 0; i < tamanio(); i++) {
+            if(hotel.get(i).getLugar().compareToIgnoreCase(destino)==0){
+                lista.add(hotel.get(i));
+            }
+        }
+        return lista;
+    }
+    
     public int tamanio(){
         return hotel.size();
     }

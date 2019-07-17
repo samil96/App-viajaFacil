@@ -128,7 +128,12 @@ public class MDIViajes extends javax.swing.JFrame {
         editMenu1.setText("Reporte");
 
         cutMenuItem1.setMnemonic('t');
-        cutMenuItem1.setText("Cut");
+        cutMenuItem1.setText("Tickets");
+        cutMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cutMenuItem1ActionPerformed(evt);
+            }
+        });
         editMenu1.add(cutMenuItem1);
 
         copyMenuItem1.setMnemonic('y');
@@ -214,6 +219,12 @@ public class MDIViajes extends javax.swing.JFrame {
         verFormTour.setVisible(true);
         desktopPane.add(verFormTour);
     }//GEN-LAST:event_ItoursActionPerformed
+
+    private void cutMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItem1ActionPerformed
+        FormTicket verFormTicket = new FormTicket();
+        verFormTicket.setVisible(true);
+        desktopPane.add(verFormTicket);
+    }//GEN-LAST:event_cutMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
