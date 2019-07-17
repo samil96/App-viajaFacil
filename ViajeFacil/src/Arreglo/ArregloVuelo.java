@@ -15,10 +15,10 @@ public class ArregloVuelo {
 
     public ArregloVuelo() {
         vuelo = new ArrayList();
-        vuelo.add(new Vuelo(1001, "Latam", "Lima", "Tacna", "10/10/19", 20, 30, "viaje"));
-        vuelo.add(new Vuelo(1002, "Latam", "Lima", "Cuzco", "10/10/19", 20, 30, "viaje"));
-        vuelo.add(new Vuelo(1003, "Latam", "Lima", "Tarapoto", "10/10/19", 20, 30, "viaje"));
-        vuelo.add(new Vuelo(1004, "Latam", "Lima", "Tacna", "10/10/19", 20, 30, "viaje"));
+        vuelo.add(new Vuelo("Latam", "Lima", "Tacna", "10/10/19", 20, 30, "viaje"));
+        vuelo.add(new Vuelo("Latam", "Lima", "Cuzco", "10/10/19", 20, 30, "viaje"));
+        vuelo.add(new Vuelo("Latam", "Lima", "Tarapoto", "10/10/19", 20, 30, "viaje"));
+        vuelo.add(new Vuelo("Latam", "Lima", "Tacna", "10/10/19", 20, 30, "viaje"));
     }
 
     public List<Vuelo> getVuelo() {

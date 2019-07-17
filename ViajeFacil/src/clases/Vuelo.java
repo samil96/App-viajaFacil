@@ -15,7 +15,7 @@ public class Vuelo extends Servicio{
     private int cant_asientos;
     static int cuenta = 1001;
 
-    public Vuelo(int codigo, String aerolinea, String origen, String destino, String fecha, int hora, int cant_asientos, String nombre) {
+    public Vuelo(String aerolinea, String origen, String destino, String fecha, int hora, int cant_asientos, String nombre) {
         super(nombre);
         this.codigo = cuenta++;
         this.aerolinea = aerolinea;
