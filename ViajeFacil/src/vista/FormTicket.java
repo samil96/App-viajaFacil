@@ -54,6 +54,10 @@ public class FormTicket extends javax.swing.JInternalFrame {
         btnLista = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -205,19 +209,53 @@ public class FormTicket extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+        int cod_Ticket=Integer.parseInt(txCodTicket.getText());
+        Ticket t=tickets.buscar(tickets.obtenerPosicion(cod_Ticket));
+        txCodCliente.setText(""+t.getCod_cliente());
+        txCodPaquete.setText(""+t.getCod_Paquete());
+        txDestino.setText(t.getDestino());
+        txFecha.setText(t.getFecha());txHora.setText(""+t.getHora());
+        txPrecio.setText(""+t.getPrecio());
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
+        int cod_cliente=Integer.parseInt(txCodCliente.getText());
+        int cod_paquete=Integer.parseInt(txCodPaquete.getText());
+        String destino=txDestino.getText();
+        String fecha=txFecha.getText();
+        int hora=Integer.parseInt(txHora.getText());
+        double precio=Double.parseDouble(txPrecio.getText());
+        Ticket t=new Ticket(cod_cliente, cod_paquete, destino, fecha, hora, precio);
+        tickets.agregar(t);
+        limpiarCampos();
+        listarTickets();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnActualizaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizaActionPerformed
-        // TODO add your handling code here:
+        int pos=tickets.obtenerPosicion(Integer.parseInt(txCodTicket.getText()));
+        int cod_cliente=Integer.parseInt(txCodCliente.getText());
+        int cod_paquete=Integer.parseInt(txCodPaquete.getText());
+        String destino=txDestino.getText();
+        String fecha=txFecha.getText();
+        int hora=Integer.parseInt(txHora.getText());
+        double precio=Double.parseDouble(txPrecio.getText());
+        Ticket t=tickets.buscar(pos);
+        t.setCod_Paquete(cod_paquete);
+        t.setCod_cliente(cod_cliente);
+        t.setDestino(destino);
+        t.setFecha(fecha);
+        t.setHora(hora);
+        t.setPrecio(precio);
+        tickets.actualizar(pos, t);
+        limpiarCampos();
+        listarTickets();
     }//GEN-LAST:event_btnActualizaActionPerformed
 
     private void btnEliminaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaActionPerformed
-        // TODO add your handling code here:
+        int pos=tickets.obtenerPosicion(Integer.parseInt(txCodTicket.getText()));
+        tickets.eliminar(pos);
+        limpiarCampos();
+        listarTickets();
     }//GEN-LAST:event_btnEliminaActionPerformed
 
     private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
@@ -231,6 +269,16 @@ public class FormTicket extends javax.swing.JInternalFrame {
             Object v[]={t.getCod_Ticket(), viajeros.buscar(viajeros.obtenerPosicion(t.getCod_cliente())).getNombre(), t.getCod_Paquete(), t.getPrecio()};
             dt.addRow(v);
         }
+    }
+    void limpiarCampos(){
+        txCodTicket.setText("");
+        txCodCliente.setText("");
+        txCodPaquete.setText("");
+        txDestino.setText("");
+        txFecha.setText("");
+        txHora.setText("");
+        txPrecio.setText("");
+        txCodCliente.requestFocus();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
