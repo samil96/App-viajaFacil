@@ -255,7 +255,8 @@ public class FormClientes extends javax.swing.JInternalFrame {
         }
     }
     void limpiarCampos(){
-        txtCodCliente.setText("");txtNombreCliente.setText("");txtApellidosCliente.setText("");txtDNI.setText("");txtTelefono.setText("");
+        txtCodCliente.setText("");txtNombreCliente.setText("");
+        txtApellidosCliente.setText("");txtDNI.setText("");txtTelefono.setText("");
         txtCodCliente.requestFocus();
     }
     

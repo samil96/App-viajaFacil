@@ -247,7 +247,7 @@ public class FormVuelos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnListarVuelosActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        
+        limpiarCamposVuelo();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -256,12 +256,12 @@ public class FormVuelos extends javax.swing.JInternalFrame {
     
     /*metodos para limpiar los campos*/
     void limpiarCamposVuelo(){
-     txtAsientos.setText("");
-     txtCodVuelo.requestFocus();
-     txtFecha.setText("");
-     txtHora.setText("");
-     txtNombreAreolinea.setText("");
-     cmbxDestino.setSelectedIndex(0);
+        txtAsientos.setText("");
+        txtCodVuelo.requestFocus();
+        txtFecha.setText("");
+        txtHora.setText("");
+        txtNombreAreolinea.setText("");
+        cmbxDestino.setSelectedIndex(0);
     }
     
     public static void main(String args[]) {

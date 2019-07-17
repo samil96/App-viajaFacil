@@ -67,6 +67,7 @@ public class FormTour extends javax.swing.JInternalFrame {
         tblTours = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
         txNumActividades = new javax.swing.JTextField();
+        btnEliminaTour = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -277,6 +278,13 @@ public class FormTour extends javax.swing.JInternalFrame {
 
         jLabel11.setText("N° ACTIVIDADES:");
 
+        btnEliminaTour.setText("ELIMINAR");
+        btnEliminaTour.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaTourActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -316,7 +324,8 @@ public class FormTour extends javax.swing.JInternalFrame {
                                     .addComponent(BTNBUSCATOUR, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(BTNAGREGATOUR, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(BTNACTUALIZATOUR, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(BTNLISTATOUR, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addComponent(BTNLISTATOUR, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnEliminaTour, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addGap(18, 18, 18))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -355,7 +364,9 @@ public class FormTour extends javax.swing.JInternalFrame {
                             .addComponent(BTNLISTATOUR)
                             .addComponent(jLabel11)
                             .addComponent(txNumActividades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addComponent(btnEliminaTour)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnListaActividadesTour)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -409,6 +420,7 @@ public class FormTour extends javax.swing.JInternalFrame {
         Tour x=tours.buscar(tours.obtenerPosicion(cod_tour));
         txDestinoTour.setText(x.getDestino());
         txNombreTour.setText(x.getNombre());
+        txNumActividades.setText(""+x.getNum_Actividades());
     }//GEN-LAST:event_BTNBUSCATOURActionPerformed
 
     private void BTNACTUALIZATOURActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNACTUALIZATOURActionPerformed
@@ -454,11 +466,19 @@ public class FormTour extends javax.swing.JInternalFrame {
         int pos=activity.obtenerPosicion(Integer.parseInt(txCodActividad.getText()));
         activity.eliminar(pos);
         listarActividad();
+        limpiarCamposActividad();
     }//GEN-LAST:event_btnDeleteActiActionPerformed
 
     private void btnListaActivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActivActionPerformed
         listarActividad();
     }//GEN-LAST:event_btnListaActivActionPerformed
+
+    private void btnEliminaTourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaTourActionPerformed
+        int pos=tours.obtenerPosicion(Integer.parseInt(txCodTour.getText()));
+        tours.eliminar(pos);
+        listarTour();
+        limpiarCamposTour();
+    }//GEN-LAST:event_btnEliminaTourActionPerformed
     void listarTour(){
         DefaultTableModel dt=(DefaultTableModel)tblTours.getModel();
         dt.setRowCount(0);
@@ -497,6 +517,7 @@ public class FormTour extends javax.swing.JInternalFrame {
     private javax.swing.JButton BTNLISTATOUR;
     private javax.swing.JButton btnBuscaActividad;
     private javax.swing.JButton btnDeleteActi;
+    private javax.swing.JButton btnEliminaTour;
     private javax.swing.JButton btnListaActiv;
     private javax.swing.JButton btnListaActividadesTour;
     private javax.swing.JButton btnUpdateActi;
