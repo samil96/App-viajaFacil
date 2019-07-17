@@ -5,12 +5,18 @@
  */
 package vista;
 
+import Arreglo.ArregloHotel;
+import clases.Hotel;
+import javax.swing.table.DefaultTableModel;
+import listas.*;
+
 /**
  *
  * @author Valia
  */
 public class FormHoteles extends javax.swing.JInternalFrame {
-
+    Arreglo.ArregloHotel objho =new ArregloHotel();
+    listaHotel objh= new listaHotel();
     /**
      * Creates new form FormHoteles
      */
@@ -28,150 +34,284 @@ public class FormHoteles extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnAgregarHotel = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        btnEliminarHotel = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        btnListarHotel = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        btnActualizarHotel = new javax.swing.JButton();
+        txtCodHotel = new javax.swing.JTextField();
+        txtNomHotel = new javax.swing.JTextField();
+        cmbCategoria = new javax.swing.JComboBox<>();
+        txthabitaciones = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField3 = new javax.swing.JTextField();
+        txtPrecio = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableHotel = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnBuscarHotel = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablaHabitacion = new javax.swing.JTable();
+        btnBuscarHab = new javax.swing.JButton();
+        btnAgregarHab = new javax.swing.JButton();
+        btnEliminarHab = new javax.swing.JButton();
+        btnActualizarHab = new javax.swing.JButton();
+        btnListarHab = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setMaximizable(true);
         setTitle("VentanaHotel");
         setVisible(true);
+        getContentPane().setLayout(null);
 
-        jLabel2.setText("CÓDIGO:");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setText("LUGAR:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(80, 130, 110, 17);
 
-        jButton2.setText("AGREGAR");
-
-        jLabel3.setText("NOMBRE:");
-
-        jButton3.setText("ELIMINAR");
-
-        jLabel4.setText("CATEGORÍA:");
-
-        jButton4.setText("LISTAR");
-
-        jLabel5.setText("N° HABITACIONES:");
-
-        jButton5.setText("ACTUALIZAR");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "N° ESTRELLAS", "2", "3", "4", "5" }));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "COD", "NOMBRES", "CATEGORIA", "N° HABITACIONES"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("HOTELES");
-
-        jButton1.setText("BUSCAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarHotel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/agregar.png"))); // NOI18N
+        btnAgregarHotel.setText("AGREGAR");
+        btnAgregarHotel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAgregarHotelActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAgregarHotel);
+        btnAgregarHotel.setBounds(650, 130, 140, 50);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(217, 217, 217)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(78, 78, 78)
-                                .addComponent(jTextField2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(49, 49, 49)
-                                .addComponent(jTextField3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(104, 104, 104)
-                                .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton5)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
-                .addGap(43, 43, 43))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton1)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jButton2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4))
-                .addGap(8, 8, 8)
-                .addComponent(jButton5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("NOMBRE:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(80, 170, 110, 17);
+
+        btnEliminarHotel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/delete.png"))); // NOI18N
+        btnEliminarHotel.setText("ELIMINAR");
+        getContentPane().add(btnEliminarHotel);
+        btnEliminarHotel.setBounds(650, 180, 140, 40);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setText("CATEGORÍA:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(80, 220, 130, 17);
+
+        btnListarHotel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/listar.png"))); // NOI18N
+        btnListarHotel.setText("LISTAR");
+        btnListarHotel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarHotelActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnListarHotel);
+        btnListarHotel.setBounds(30, 350, 140, 50);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText("N° HABITACIONES:");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(60, 260, 160, 17);
+
+        btnActualizarHotel.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        btnActualizarHotel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/icons8-update-40.png"))); // NOI18N
+        btnActualizarHotel.setText("ACTUALIZAR");
+        getContentPane().add(btnActualizarHotel);
+        btnActualizarHotel.setBounds(650, 220, 139, 50);
+        getContentPane().add(txtCodHotel);
+        txtCodHotel.setBounds(450, 90, 100, 30);
+        getContentPane().add(txtNomHotel);
+        txtNomHotel.setBounds(210, 170, 340, 30);
+
+        cmbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "N° ESTRELLAS", "2", "3", "4", "5" }));
+        getContentPane().add(cmbCategoria);
+        cmbCategoria.setBounds(450, 210, 100, 30);
+        getContentPane().add(txthabitaciones);
+        txthabitaciones.setBounds(450, 250, 102, 30);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setText("PRECIO:");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(100, 300, 90, 17);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setText("ESTADO:");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(840, 220, 160, 17);
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(450, 130, 100, 30);
+        getContentPane().add(txtPrecio);
+        txtPrecio.setBounds(450, 290, 100, 30);
+
+        jLabel9.setFont(new java.awt.Font("Microsoft YaHei", 1, 25)); // NOI18N
+        jLabel9.setText("HABITACIONES");
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(820, 70, 230, 40);
+
+        tableHotel.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "CODIGO", "LUGAR", "NOMBRES", "CATEGORIA", "PRECIO", "N° HABITACIONES"
+            }
+        ));
+        jScrollPane1.setViewportView(tableHotel);
+        if (tableHotel.getColumnModel().getColumnCount() > 0) {
+            tableHotel.getColumnModel().getColumn(0).setHeaderValue("CODIGO");
+            tableHotel.getColumnModel().getColumn(1).setHeaderValue("LUGAR");
+            tableHotel.getColumnModel().getColumn(2).setHeaderValue("NOMBRES");
+            tableHotel.getColumnModel().getColumn(3).setHeaderValue("CATEGORIA");
+            tableHotel.getColumnModel().getColumn(4).setHeaderValue("PRECIO");
+            tableHotel.getColumnModel().getColumn(5).setHeaderValue("N° HABITACIONES");
+        }
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(30, 410, 673, 170);
+
+        jLabel1.setFont(new java.awt.Font("Microsoft YaHei", 1, 30)); // NOI18N
+        jLabel1.setText("HOTELES");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(330, 11, 137, 40);
+
+        btnBuscarHotel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/buscar.png"))); // NOI18N
+        btnBuscarHotel.setText("BUSCAR");
+        btnBuscarHotel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarHotelActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBuscarHotel);
+        btnBuscarHotel.setBounds(650, 80, 140, 50);
+        getContentPane().add(jSeparator1);
+        jSeparator1.setBounds(0, 59, 1410, 10);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel10.setText("CÓDIGO:");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(80, 90, 110, 17);
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setText("CÓDIGO HABITACION:");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(830, 177, 160, 20);
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel12.setText("CÓDIGO:");
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(840, 140, 160, 17);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/fonthotel.png"))); // NOI18N
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(0, 0, 800, 620);
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(1020, 130, 100, 30);
+        getContentPane().add(jTextField3);
+        jTextField3.setBounds(1020, 170, 100, 30);
+        getContentPane().add(jTextField4);
+        jTextField4.setBounds(1020, 210, 100, 30);
+
+        tablaHabitacion.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "CODIGO", "COD. HABITACION", "ESTADO"
+            }
+        ));
+        jScrollPane2.setViewportView(tablaHabitacion);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(860, 350, 452, 260);
+
+        btnBuscarHab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/buscar.png"))); // NOI18N
+        btnBuscarHab.setText("BUSCAR");
+        getContentPane().add(btnBuscarHab);
+        btnBuscarHab.setBounds(1180, 90, 150, 50);
+
+        btnAgregarHab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/agregar.png"))); // NOI18N
+        btnAgregarHab.setText("AGREGAR");
+        getContentPane().add(btnAgregarHab);
+        btnAgregarHab.setBounds(1180, 140, 150, 50);
+
+        btnEliminarHab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/delete.png"))); // NOI18N
+        btnEliminarHab.setText("ELIMINAR");
+        getContentPane().add(btnEliminarHab);
+        btnEliminarHab.setBounds(1180, 190, 150, 40);
+
+        btnActualizarHab.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        btnActualizarHab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/actualizar.png"))); // NOI18N
+        btnActualizarHab.setText("ACTUALIZAR");
+        getContentPane().add(btnActualizarHab);
+        btnActualizarHab.setBounds(1180, 230, 150, 40);
+
+        btnListarHab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/listar.png"))); // NOI18N
+        btnListarHab.setText("LISTAR");
+        getContentPane().add(btnListarHab);
+        btnListarHab.setBounds(840, 290, 130, 40);
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/fonthabitacion.png"))); // NOI18N
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(800, 0, 560, 620);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnBuscarHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarHotelActionPerformed
+    int cod=Integer.parseInt(txtCodHotel.getText());
+        Hotel h=objh.buscar(objh.obtenerPosicion(cod));
+        limpiaTabla();
+        if(h.getCodigo()==cod)
+        tableHotel.setValueAt("H"+h.getCodigo(), 0, 0);
+        tableHotel.setValueAt(h.getLugar(), 0, 1);
+        tableHotel.setValueAt(h.getNomHotel(), 0, 2);
+        tableHotel.setValueAt(h.getCategoria(), 0, 3);
+        tableHotel.setValueAt(h.calcularCostoServicio(), 0, 4);
+        tableHotel.setValueAt(h.getHabitaciones(), 0, 5);
+    }//GEN-LAST:event_btnBuscarHotelActionPerformed
 
+    private void btnListarHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarHotelActionPerformed
+        DefaultTableModel dt=(DefaultTableModel)tableHotel.getModel();
+       dt.setRowCount(0);
+       for(Hotel h: objh.data()){
+            Object v[]={"H"+h.getCodigo(),h.getLugar(),h.getNomHotel(),h.getCategoria(),h.calcularCostoServicio(),h.getHabitaciones()};
+            dt.addRow(v);
+        }
+    }//GEN-LAST:event_btnListarHotelActionPerformed
+
+    private void btnAgregarHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarHotelActionPerformed
+        int codigo = Integer.parseInt(txtCodHotel.getText());
+        String nombre = txtNomHotel.getText();
+        int categoria = (int)cmbCategoria.getSelectedItem();
+        int habitacion = Integer.parseInt(txthabitaciones.getText());
+        int costo = Integer.parseInt(txtPrecio.getText());
+        Hotel h = new Hotel(nombre, categoria, nombre, habitacion, costo,nombre);
+        objh.agregar(h);
+        limpiarCamposHotel();
+    }//GEN-LAST:event_btnAgregarHotelActionPerformed
+    void limpiarCamposHotel(){
+        txtCodHotel.setText("");
+        txtCodHotel.requestFocus();
+        txtNomHotel.setText("");
+        txthabitaciones.setText("");
+        txtPrecio.setText("");
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -196,6 +336,20 @@ public class FormHoteles extends javax.swing.JInternalFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -204,22 +358,50 @@ public class FormHoteles extends javax.swing.JInternalFrame {
             }
         });
     }
+    private void limpiaTabla(){
+        for(int i=0;i<tableHotel.getRowCount();i++){
+            for(int c=0;c<tableHotel.getColumnCount();c++){
+                tableHotel.setValueAt("", i, c);
+            }
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btnActualizarHab;
+    private javax.swing.JButton btnActualizarHotel;
+    private javax.swing.JButton btnAgregarHab;
+    private javax.swing.JButton btnAgregarHotel;
+    private javax.swing.JButton btnBuscarHab;
+    private javax.swing.JButton btnBuscarHotel;
+    private javax.swing.JButton btnEliminarHab;
+    private javax.swing.JButton btnEliminarHotel;
+    private javax.swing.JButton btnListarHab;
+    private javax.swing.JButton btnListarHotel;
+    private javax.swing.JComboBox<String> cmbCategoria;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTable tablaHabitacion;
+    private javax.swing.JTable tableHotel;
+    private javax.swing.JTextField txtCodHotel;
+    private javax.swing.JTextField txtNomHotel;
+    private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txthabitaciones;
     // End of variables declaration//GEN-END:variables
 }

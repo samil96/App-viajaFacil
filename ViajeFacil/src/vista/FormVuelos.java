@@ -1,3 +1,4 @@
+
 package vista;
 
 import clases.Asiento;
@@ -11,7 +12,7 @@ import listas.listaVuelo;
  * @author Valia
  */
 public class FormVuelos extends javax.swing.JInternalFrame {
-
+    
     listaVuelo objv = new listaVuelo();
     listaAsientos objA = new listaAsientos();
 
@@ -53,78 +54,127 @@ public class FormVuelos extends javax.swing.JInternalFrame {
         txtNombreAreolinea = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        txtEstado = new javax.swing.JTextField();
-        btnAgregarAsiento = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tablaAsientos = new javax.swing.JTable();
         jLabel13 = new javax.swing.JLabel();
-        txCodVueloAsiento = new javax.swing.JTextField();
-        btnBuscaAsiento = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
-        txCodAsiento = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tablaasientos = new javax.swing.JTable();
+        txtcodasiento = new javax.swing.JTextField();
+        txtcodvueas = new javax.swing.JTextField();
+        txtestadoasiento = new javax.swing.JTextField();
+        btnAgregarAsiento = new javax.swing.JButton();
+        btnEliminarAsiento = new javax.swing.JButton();
+        btnBuscarAsiento = new javax.swing.JButton();
         btnActualizarAsiento = new javax.swing.JButton();
-        btnDeleteAsiento = new javax.swing.JButton();
-        btnListaAsiento = new javax.swing.JButton();
+        btnListarAsiento = new javax.swing.JButton();
+        jLabel14 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setMaximizable(true);
         setTitle("VentanaVuelos");
         setVisible(true);
+        getContentPane().setLayout(null);
 
+        btnActualizarVuelo.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        btnActualizarVuelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/actualizar.png"))); // NOI18N
         btnActualizarVuelo.setText("ACTUALIZAR");
         btnActualizarVuelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarVueloActionPerformed(evt);
             }
         });
+        getContentPane().add(btnActualizarVuelo);
+        btnActualizarVuelo.setBounds(530, 240, 149, 50);
 
         cmbxDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ELEGIR", "AREQUIPA", "CUSCO", "TACNA", "TARAPOTO", " " }));
+        getContentPane().add(cmbxDestino);
+        cmbxDestino.setBounds(301, 209, 139, 20);
+        getContentPane().add(txtFecha);
+        txtFecha.setBounds(301, 250, 139, 20);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(255, 102, 102));
+        jLabel1.setFont(new java.awt.Font("Microsoft YaHei", 1, 30)); // NOI18N
         jLabel1.setText("VUELOS");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(310, 10, 120, 40);
+        getContentPane().add(txtHora);
+        txtHora.setBounds(323, 291, 117, 20);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("CÓDIGO:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(103, 93, 64, 17);
+        getContentPane().add(txtAsientos);
+        txtAsientos.setBounds(301, 331, 139, 20);
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("NOMBRE AEROLINEA:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(103, 134, 157, 17);
 
+        btnBuscarVuelos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/buscar.png"))); // NOI18N
         btnBuscarVuelos.setText("BUSCAR");
         btnBuscarVuelos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarVuelosActionPerformed(evt);
             }
         });
+        getContentPane().add(btnBuscarVuelos);
+        btnBuscarVuelos.setBounds(530, 90, 150, 50);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("DESTINO:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(103, 209, 71, 17);
 
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/agregar.png"))); // NOI18N
         btnAgregar.setText("AGREGAR");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAgregar);
+        btnAgregar.setBounds(530, 140, 150, 50);
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("FECHA:");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(103, 250, 53, 17);
 
+        btnListarVuelos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/listar.png"))); // NOI18N
         btnListarVuelos.setText("LISTAR");
         btnListarVuelos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnListarVuelosActionPerformed(evt);
             }
         });
+        getContentPane().add(btnListarVuelos);
+        btnListarVuelos.setBounds(60, 370, 121, 59);
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("HORA:");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(103, 291, 47, 17);
 
+        btnEliminarVuelo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/delete.png"))); // NOI18N
         btnEliminarVuelo.setText("ELIMINAR");
         btnEliminarVuelo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarVueloActionPerformed(evt);
             }
         });
+        getContentPane().add(btnEliminarVuelo);
+        btnEliminarVuelo.setBounds(530, 190, 150, 50);
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("N° ASIENTOS:");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(103, 331, 102, 17);
 
         tablaVuelos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -139,7 +189,17 @@ public class FormVuelos extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tablaVuelos);
 
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(80, 440, 580, 220);
+        getContentPane().add(txtCodVuelo);
+        txtCodVuelo.setBounds(346, 93, 94, 20);
+        getContentPane().add(txtNombreAreolinea);
+        txtNombreAreolinea.setBounds(278, 134, 162, 20);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("ORIGEN:");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(103, 170, 63, 17);
 
         jTextField1.setEditable(false);
         jTextField1.setText("LIMA");
@@ -148,20 +208,36 @@ public class FormVuelos extends javax.swing.JInternalFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(301, 170, 139, 20);
+        getContentPane().add(jSeparator1);
+        jSeparator1.setBounds(0, 64, 1380, 10);
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel9.setText("ASIENTO");
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/fontvuelo.png"))); // NOI18N
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(0, 0, 760, 680);
 
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel12.setText("CÓDIGO:");
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(830, 130, 160, 17);
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel11.setText("CÓDIGO VUELO:");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(830, 170, 160, 20);
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("ESTADO:");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(830, 210, 160, 17);
 
-        btnAgregarAsiento.setText("AGREGAR");
-        btnAgregarAsiento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarAsientoActionPerformed(evt);
-            }
-        });
+        jLabel13.setFont(new java.awt.Font("Microsoft YaHei", 1, 25)); // NOI18N
+        jLabel13.setText("ASIENTOS");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(830, 70, 230, 40);
 
-        tablaAsientos.setModel(new javax.swing.table.DefaultTableModel(
+        tablaasientos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -172,210 +248,72 @@ public class FormVuelos extends javax.swing.JInternalFrame {
                 "CODIGO", "CODIGO VUELO", "ESTADO"
             }
         ));
-        jScrollPane2.setViewportView(tablaAsientos);
+        jScrollPane2.setViewportView(tablaasientos);
 
-        jLabel13.setText("CODIGO VUELO:");
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(850, 410, 452, 200);
+        getContentPane().add(txtcodasiento);
+        txtcodasiento.setBounds(1010, 130, 90, 20);
+        getContentPane().add(txtcodvueas);
+        txtcodvueas.setBounds(1010, 170, 90, 20);
+        getContentPane().add(txtestadoasiento);
+        txtestadoasiento.setBounds(1010, 210, 90, 20);
 
-        btnBuscaAsiento.setText("BUSCAR");
-        btnBuscaAsiento.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarAsiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/agregar.png"))); // NOI18N
+        btnAgregarAsiento.setText("AGREGAR");
+        btnAgregarAsiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscaAsientoActionPerformed(evt);
+                btnAgregarAsientoActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAgregarAsiento);
+        btnAgregarAsiento.setBounds(1210, 130, 150, 50);
 
-        jLabel14.setText("CODIGO ASIENTO:");
+        btnEliminarAsiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/delete.png"))); // NOI18N
+        btnEliminarAsiento.setText("ELIMINAR");
+        btnEliminarAsiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarAsientoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEliminarAsiento);
+        btnEliminarAsiento.setBounds(1210, 180, 150, 50);
 
+        btnBuscarAsiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/buscar.png"))); // NOI18N
+        btnBuscarAsiento.setText("BUSCAR");
+        btnBuscarAsiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarAsientoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBuscarAsiento);
+        btnBuscarAsiento.setBounds(1210, 80, 150, 50);
+
+        btnActualizarAsiento.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        btnActualizarAsiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/actualizar.png"))); // NOI18N
         btnActualizarAsiento.setText("ACTUALIZAR");
         btnActualizarAsiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnActualizarAsientoActionPerformed(evt);
             }
         });
+        getContentPane().add(btnActualizarAsiento);
+        btnActualizarAsiento.setBounds(1210, 230, 149, 50);
 
-        btnDeleteAsiento.setText("ELIMINAR");
-        btnDeleteAsiento.addActionListener(new java.awt.event.ActionListener() {
+        btnListarAsiento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/listar.png"))); // NOI18N
+        btnListarAsiento.setText("LISTAR");
+        btnListarAsiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteAsientoActionPerformed(evt);
+                btnListarAsientoActionPerformed(evt);
             }
         });
+        getContentPane().add(btnListarAsiento);
+        btnListarAsiento.setBounds(850, 310, 121, 59);
 
-        btnListaAsiento.setText("LISTAR");
-        btnListaAsiento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListaAsientoActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(230, 230, 230))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnAgregarAsiento)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel14))
-                                .addGap(28, 28, 28)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtEstado, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                                    .addComponent(txCodVueloAsiento)
-                                    .addComponent(txCodAsiento))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(btnActualizarAsiento)
-                                    .addComponent(btnBuscaAsiento, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnDeleteAsiento, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnListaAsiento, javax.swing.GroupLayout.Alignment.TRAILING))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(txCodAsiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscaAsiento))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(txCodVueloAsiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAgregarAsiento))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnActualizarAsiento))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnDeleteAsiento)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnListaAsiento)
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(232, 232, 232)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(jLabel4)
-                                            .addGap(99, 99, 99)
-                                            .addComponent(cmbxDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel5)
-                                                .addComponent(jLabel6)
-                                                .addComponent(jLabel7))
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtFecha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(txtHora, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(txtAsientos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGap(36, 36, 36)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(btnListarVuelos)
-                                        .addComponent(btnEliminarVuelo)
-                                        .addComponent(btnActualizarVuelo)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(jLabel2)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(txtCodVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                    .addComponent(jLabel3)
-                                                    .addGap(18, 18, 18))
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jLabel8)
-                                                    .addGap(81, 81, 81)))
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(txtNombreAreolinea, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGap(50, 50, 50)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(btnBuscarVuelos)
-                                        .addComponent(btnAgregar))))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtCodVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarVuelos))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtNombreAreolinea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAgregar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(cmbxDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnListarVuelos))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEliminarVuelo))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnActualizarVuelo))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtAsientos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/fontasiento.png"))); // NOI18N
+        jLabel14.setText("jLabel14");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(760, 0, 620, 680);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -407,13 +345,13 @@ public class FormVuelos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // No vale
+        // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void btnAgregarAsientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarAsientoActionPerformed
-        String codAsiento = txCodAsiento.getText();
-        int codVuelo = Integer.parseInt(txCodVueloAsiento.getText());
-        String estado = txtEstado.getText();
+        String codAsiento = txtcodasiento.getText();
+        int codVuelo = Integer.parseInt(txtcodvueas.getText());
+        String estado = txtestadoasiento.getText();
 
         Asiento a = new Asiento(codAsiento, codVuelo, estado);
         objA.agregar(a);
@@ -421,18 +359,21 @@ public class FormVuelos extends javax.swing.JInternalFrame {
         listarAsientos();
     }//GEN-LAST:event_btnAgregarAsientoActionPerformed
 
-    private void btnBuscaAsientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaAsientoActionPerformed
-        
-        Asiento a = objA.buscar(objA.obtenerPosicion(txCodAsiento.getText()));
-        txCodVueloAsiento.setText("" + a.getCod_vuelo());
-        txtEstado.setText(a.getEstado());
-    }//GEN-LAST:event_btnBuscaAsientoActionPerformed
+    private void btnBuscarAsientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarAsientoActionPerformed
+        Asiento a = objA.buscar(objA.obtenerPosicion(txtAsientos.getText()));
+        txtcodvueas.setText("" + a.getCod_vuelo());
+        txtestadoasiento.setText(a.getEstado());
+    }//GEN-LAST:event_btnBuscarAsientoActionPerformed
+
+    private void btnListarAsientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarAsientoActionPerformed
+        listarAsientos();
+    }//GEN-LAST:event_btnListarAsientoActionPerformed
 
     private void btnActualizarAsientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarAsientoActionPerformed
         int pos = objv.obtenerPosicion(Integer.parseInt(txtCodVuelo.getText()));
-        String codAsiento = txCodAsiento.getText();
-        int codVue = Integer.parseInt(txCodVueloAsiento.getText());
-        String estado = txtEstado.getText();
+        String codAsiento = txtcodasiento.getText();
+        int codVue = Integer.parseInt(txtcodvueas.getText());
+        String estado = txtestadoasiento.getText();
         Asiento a = objA.buscar(pos);
         a.setCod(codAsiento);
         a.setCod_vuelo(codVue);
@@ -442,17 +383,13 @@ public class FormVuelos extends javax.swing.JInternalFrame {
         listarAsientos();
     }//GEN-LAST:event_btnActualizarAsientoActionPerformed
 
-    private void btnDeleteAsientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAsientoActionPerformed
-        String codAsiento = txCodAsiento.getText();
+    private void btnEliminarAsientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarAsientoActionPerformed
+        String codAsiento = txtcodasiento.getText();
         int pos = objA.obtenerPosicion(codAsiento);
         objA.eliminar(pos);
         listarAsientos();
         limpiarCamposAsientos();
-    }//GEN-LAST:event_btnDeleteAsientoActionPerformed
-
-    private void btnListaAsientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaAsientoActionPerformed
-        listarAsientos();
-    }//GEN-LAST:event_btnListaAsientoActionPerformed
+    }//GEN-LAST:event_btnEliminarAsientoActionPerformed
 
     private void btnEliminarVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarVueloActionPerformed
         int pos = objv.obtenerPosicion(Integer.parseInt(txtCodVuelo.getText()));
@@ -478,8 +415,6 @@ public class FormVuelos extends javax.swing.JInternalFrame {
         limpiarCamposVuelo();
         listarVuelos();
     }//GEN-LAST:event_btnActualizarVueloActionPerformed
-
-    /*metodos para limpiar los campos*/
     void listarVuelos() {
         DefaultTableModel dt = (DefaultTableModel) tablaVuelos.getModel();
         dt.setRowCount(0);
@@ -490,7 +425,7 @@ public class FormVuelos extends javax.swing.JInternalFrame {
     }
 
     void listarAsientos() {
-        DefaultTableModel dt = (DefaultTableModel) tablaAsientos.getModel();
+        DefaultTableModel dt = (DefaultTableModel) tablaasientos.getModel();
         dt.setRowCount(0);
         for (Asiento a : objA.data()) {
             Object v[] = {a.getCod(), a.getCod_vuelo(), a.getEstado()};
@@ -508,11 +443,13 @@ public class FormVuelos extends javax.swing.JInternalFrame {
     }
 
     void limpiarCamposAsientos() {
-        txtEstado.setText("");
-        txCodAsiento.requestFocus();
-        txCodVueloAsiento.requestFocus();
+        txtestadoasiento.setText("");
+        txtcodasiento.requestFocus();
+        txtcodvueas.requestFocus();
     }
-
+    /*metodos para limpiar los campos*/
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -539,6 +476,10 @@ public class FormVuelos extends javax.swing.JInternalFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>{
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>{
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -553,15 +494,17 @@ public class FormVuelos extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnActualizarVuelo;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnAgregarAsiento;
-    private javax.swing.JButton btnBuscaAsiento;
+    private javax.swing.JButton btnBuscarAsiento;
     private javax.swing.JButton btnBuscarVuelos;
-    private javax.swing.JButton btnDeleteAsiento;
+    private javax.swing.JButton btnEliminarAsiento;
     private javax.swing.JButton btnEliminarVuelo;
-    private javax.swing.JButton btnListaAsiento;
+    private javax.swing.JButton btnListarAsiento;
     private javax.swing.JButton btnListarVuelos;
     private javax.swing.JComboBox<String> cmbxDestino;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
@@ -572,19 +515,19 @@ public class FormVuelos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTable tablaAsientos;
     private javax.swing.JTable tablaVuelos;
-    private javax.swing.JTextField txCodAsiento;
-    private javax.swing.JTextField txCodVueloAsiento;
+    private javax.swing.JTable tablaasientos;
     private javax.swing.JTextField txtAsientos;
     private javax.swing.JTextField txtCodVuelo;
-    private javax.swing.JTextField txtEstado;
     private javax.swing.JTextField txtFecha;
     private javax.swing.JTextField txtHora;
     private javax.swing.JTextField txtNombreAreolinea;
+    private javax.swing.JTextField txtcodasiento;
+    private javax.swing.JTextField txtcodvueas;
+    private javax.swing.JTextField txtestadoasiento;
     // End of variables declaration//GEN-END:variables
 }

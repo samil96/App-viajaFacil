@@ -43,13 +43,10 @@ public class MDIViajes extends javax.swing.JFrame {
         copyMenuItem1 = new javax.swing.JMenuItem();
         pasteMenuItem1 = new javax.swing.JMenuItem();
         deleteMenuItem1 = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        desktopPane.setBackground(new java.awt.Color(204, 204, 204));
+        desktopPane.setBackground(new java.awt.Color(204, 204, 255));
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("Menú");
@@ -149,19 +146,6 @@ public class MDIViajes extends javax.swing.JFrame {
         editMenu1.add(deleteMenuItem1);
 
         menuBar.add(editMenu1);
-
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Help");
-
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Contents");
-        helpMenu.add(contentMenuItem);
-
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
-        helpMenu.add(aboutMenuItem);
-
-        menuBar.add(helpMenu);
 
         setJMenuBar(menuBar);
 
@@ -269,8 +253,6 @@ public class MDIViajes extends javax.swing.JFrame {
     private javax.swing.JMenuItem Itours;
     private javax.swing.JMenuItem Ivendedor;
     private javax.swing.JMenuItem Ivuelos;
-    private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenuItem copyMenuItem1;
     private javax.swing.JMenuItem cutMenuItem1;
     private javax.swing.JMenuItem deleteMenuItem1;
@@ -279,7 +261,6 @@ public class MDIViajes extends javax.swing.JFrame {
     private javax.swing.JMenu editMenu1;
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
-    private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem pasteMenuItem1;
     // End of variables declaration//GEN-END:variables
