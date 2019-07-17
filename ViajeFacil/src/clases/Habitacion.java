@@ -10,11 +10,14 @@ package clases;
  * @author FRANK
  */
 public class Habitacion {
-    private int cod_habi;
+        private int cod_habi;
+    private int cod_hotel;
     private String estado;
+    static int cuenta=1001;
 
-    public Habitacion(int cod_habi, String estado) {
-        this.cod_habi = cod_habi;
+    public Habitacion(int cod_hotel,String estado) {
+        this.cod_habi = cuenta++;
+        this.cod_hotel = cod_hotel;
         this.estado = estado;
     }
 
@@ -32,6 +35,16 @@ public class Habitacion {
 
     public void setCod_habi(int cod_habi) {
         this.cod_habi = cod_habi;
+    }
+
+   
+
+    public int getCod_hotel() {
+        return cod_hotel;
+    }
+
+    public void setCod_hotel(int cod_hotel) {
+        this.cod_hotel = cod_hotel;
     }
 
 }

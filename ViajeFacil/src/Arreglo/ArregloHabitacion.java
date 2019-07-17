@@ -14,64 +14,35 @@ import java.util.List;
  *
  * @author FRANK
  */
-public class ArregloHabitacion implements iMantenedor<Habitacion>{
-    private List<Habitacion> habi;
+public class ArregloHabitacion{
+    private List<Habitacion> habitacion;
 
     public ArregloHabitacion() {
-        habi = new ArrayList();
-        habi.add(new Habitacion(701, "Libre"));
-        habi.add(new Habitacion(605, "Libre"));
-        habi.add(new Habitacion(707, "Libre"));
-        habi.add(new Habitacion(607, "Libre"));
-        habi.add(new Habitacion(706, "Libre"));
-        habi.add(new Habitacion(601, "Libre"));
-        habi.add(new Habitacion(705, "Libre"));
-        habi.add(new Habitacion(602, "Libre"));
-        habi.add(new Habitacion(704, "Libre"));
-        habi.add(new Habitacion(603, "Libre"));
-        habi.add(new Habitacion(703, "Libre"));
-        habi.add(new Habitacion(604, "Libre"));
-        habi.add(new Habitacion(702, "Libre"));
-        habi.add(new Habitacion(606, "Libre"));
-    }
-    public int obtenerPosicion(int codigo){
-        int pos=-1;
-        for (int i = 0; i < tamanio(); i++) {
-            if(habi.get(i).getCod_habi()==codigo){
-                pos=i; break;
-            }
-        }
-        return pos;
-    }
-    public List<Habitacion> data(){
-        return habi;
-    }
-    public int tamanio(){
-        return habi.size();
+        habitacion = new ArrayList();
+        habitacion.add(new Habitacion(1001, "Libre"));
+        habitacion.add(new Habitacion(1001, "Ocupado"));
+        habitacion.add(new Habitacion(1002, "Libre"));
+        habitacion.add(new Habitacion(1002, "Libre"));
+        habitacion.add(new Habitacion(1003, "Libre"));
+        habitacion.add(new Habitacion(1003, "Libre"));
+        habitacion.add(new Habitacion(1004, "Ocupado"));
+        habitacion.add(new Habitacion(1004, "Libre"));
+        habitacion.add(new Habitacion(1004, "Libre"));
+        habitacion.add(new Habitacion(1004, "Libre"));
+        habitacion.add(new Habitacion(1004, "Ocupado"));
+        habitacion.add(new Habitacion(1004, "Libre"));
+        habitacion.add(new Habitacion(1004, "Ocupado"));
+        habitacion.add(new Habitacion(1004, "Libre"));
     }
 
-    @Override
-    public void agregar(Habitacion t) {
-        habi.add(t);
-    }
-
-    @Override
-    public void actualizar(int pos, Habitacion t) {
-        habi.set(pos, t);
-    }
-
-    @Override
-    public void eliminar(int pos) {
-        habi.remove(pos);
-    }
-
-    @Override
-    public Habitacion buscar(int pos) {
-        return habi.get(pos);
+    public List<Habitacion> getHabi() {
+        return habitacion;
     }
 
     public void setHabi(List<Habitacion> habi) {
-        this.habi = habi;
+        this.habitacion = habi;
     }
+    
+    
     
 }

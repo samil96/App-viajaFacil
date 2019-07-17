@@ -86,6 +86,11 @@ public class FrmLogin extends javax.swing.JFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/OUT.png"))); // NOI18N
         jButton1.setText("Salir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton1);
         jButton1.setBounds(430, 290, 81, 33);
 
@@ -124,6 +129,10 @@ public class FrmLogin extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

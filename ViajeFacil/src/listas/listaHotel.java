@@ -13,9 +13,14 @@ import java.util.ArrayList;
  * @author Lesly
  */
 public class listaHotel implements iMantenedor<Hotel>{
-    ArregloHotel objv = new ArregloHotel();
-    private List<Hotel> hotel= objv.getHot();
+    ArregloHotel objh = new ArregloHotel();
+    private List<Hotel> hotel= objh.getHot();
     
+    
+    
+    public List<Hotel> data(){
+        return hotel;
+    }
     public int obtenerPosicion(int codigo){
         int pos=-1;
         for (int i = 0; i < tamanio(); i++) {
@@ -25,11 +30,6 @@ public class listaHotel implements iMantenedor<Hotel>{
         }
         return pos;
     }
-    
-    public List<Hotel> data(){
-        return hotel;
-    }
-    
     public List<Hotel> datosporDestino(String destino){
         List<Hotel> lista=new ArrayList<>();
         for (int i = 0; i < tamanio(); i++) {

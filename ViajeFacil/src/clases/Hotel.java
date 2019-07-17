@@ -10,13 +10,13 @@ public class Hotel extends Servicio {
 
     private int codigo;
     private String nomHotel;
-    private int categoria;
+    private String categoria;
     private String lugar;
     private int habitaciones;
     private int costohotel;
     static int cuenta = 1001;
 
-    public Hotel(String nomHotel,int categoria, String lugar, int habitaciones,int costohotel, String nombre) {
+    public Hotel(String nomHotel,String categoria, String lugar, int habitaciones,int costohotel, String nombre) {
         super(nombre);
         this.codigo = cuenta++;
         this.nomHotel = nomHotel;
@@ -29,11 +29,11 @@ public class Hotel extends Servicio {
     @Override
     public double calcularCostoServicio() {
         double costo=0;
-        if (categoria==1) costo=80;
-        if (categoria==2) costo=90;
-        if (categoria==3) costo=100;
-        if (categoria==4) costo=150;
-        if (categoria==5) costo=180;
+        if (categoria=="1") costo=80;
+        if (categoria=="2") costo=90;
+        if (categoria=="3") costo=100;
+        if (categoria=="4") costo=150;
+        if (categoria=="5") costo=180;
         return costo;
     
     }
@@ -44,13 +44,15 @@ public class Hotel extends Servicio {
     public void setNomHotel(String nomHotel) {
         this.nomHotel = nomHotel;
     }
-    public int getCategoria() {
+
+    public String getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(int categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
+   
 
     public int getCodigo() {
         return codigo;

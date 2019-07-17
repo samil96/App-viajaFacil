@@ -503,15 +503,15 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBuscarVuelosActionPerformed
 
     private void btnBuscarHotelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarHotelesActionPerformed
-        
         int cod=Integer.parseInt(txtCodHoteles.getText());
         Hotel h=objh.buscar(objh.obtenerPosicion(cod));
         limpiaTablaHotel();
         if(h.getCodigo()==cod)
         tableHotel.setValueAt(h.getCodigo(), 0, 0);
-        tableHotel.setValueAt(h.getNombre(), 0, 1);
-        tableHotel.setValueAt(h.getCategoria(), 0, 2);
-        tableHotel.setValueAt(h.getHabitaciones(), 0, 3);
+        tableHotel.setValueAt(h.getLugar(), 0, 1);
+        tableHotel.setValueAt(h.getNomHotel(), 0, 2);
+        tableHotel.setValueAt(h.getCategoria(), 0, 3);
+        tableHotel.setValueAt(h.getHabitaciones(), 0, 4);
 
     }//GEN-LAST:event_btnBuscarHotelesActionPerformed
 
@@ -671,7 +671,7 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
         DefaultTableModel dt=(DefaultTableModel)tableHotel.getModel();
         dt.setRowCount(0);
         for(Hotel h: x){
-            Object v[]={h.getCodigo(),h.getNombre(),h.getCategoria(),h.getHabitaciones()};
+            Object v[]={h.getCodigo(),h.getLugar(),h.getNomHotel(),h.getCategoria(),h.getHabitaciones()};
             dt.addRow(v);
         }
     }

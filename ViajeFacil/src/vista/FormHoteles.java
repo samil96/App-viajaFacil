@@ -6,7 +6,7 @@
 package vista;
 
 import Arreglo.ArregloHotel;
-import clases.Hotel;
+import clases.*;
 import javax.swing.table.DefaultTableModel;
 import listas.*;
 
@@ -17,6 +17,7 @@ import listas.*;
 public class FormHoteles extends javax.swing.JInternalFrame {
     Arreglo.ArregloHotel objho =new ArregloHotel();
     listaHotel objh= new listaHotel();
+    listaHabitacion obja = new listaHabitacion();
     /**
      * Creates new form FormHoteles
      */
@@ -47,7 +48,7 @@ public class FormHoteles extends javax.swing.JInternalFrame {
         txthabitaciones = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtLugar = new javax.swing.JTextField();
         txtPrecio = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -59,9 +60,9 @@ public class FormHoteles extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        txtCodHoHa = new javax.swing.JTextField();
+        txtCodHabitacion = new javax.swing.JTextField();
+        txtEstadoHab = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaHabitacion = new javax.swing.JTable();
         btnBuscarHab = new javax.swing.JButton();
@@ -100,6 +101,11 @@ public class FormHoteles extends javax.swing.JInternalFrame {
 
         btnEliminarHotel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/delete.png"))); // NOI18N
         btnEliminarHotel.setText("ELIMINAR");
+        btnEliminarHotel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarHotelActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnEliminarHotel);
         btnEliminarHotel.setBounds(650, 180, 140, 40);
 
@@ -126,6 +132,11 @@ public class FormHoteles extends javax.swing.JInternalFrame {
         btnActualizarHotel.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         btnActualizarHotel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/icons8-update-40.png"))); // NOI18N
         btnActualizarHotel.setText("ACTUALIZAR");
+        btnActualizarHotel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarHotelActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnActualizarHotel);
         btnActualizarHotel.setBounds(650, 220, 139, 50);
         getContentPane().add(txtCodHotel);
@@ -148,8 +159,8 @@ public class FormHoteles extends javax.swing.JInternalFrame {
         jLabel8.setText("ESTADO:");
         getContentPane().add(jLabel8);
         jLabel8.setBounds(840, 220, 160, 17);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(450, 130, 100, 30);
+        getContentPane().add(txtLugar);
+        txtLugar.setBounds(450, 130, 100, 30);
         getContentPane().add(txtPrecio);
         txtPrecio.setBounds(450, 290, 100, 30);
 
@@ -207,22 +218,22 @@ public class FormHoteles extends javax.swing.JInternalFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("CÓDIGO HABITACION:");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(830, 177, 160, 20);
+        jLabel11.setBounds(830, 140, 180, 20);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel12.setText("CÓDIGO:");
+        jLabel12.setText("CÓDIGO HOTEL:");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(840, 140, 160, 17);
+        jLabel12.setBounds(830, 180, 160, 17);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/fonthotel.png"))); // NOI18N
         getContentPane().add(jLabel6);
         jLabel6.setBounds(0, 0, 800, 620);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(1020, 130, 100, 30);
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(1020, 170, 100, 30);
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(1020, 210, 100, 30);
+        getContentPane().add(txtCodHoHa);
+        txtCodHoHa.setBounds(1020, 130, 100, 30);
+        getContentPane().add(txtCodHabitacion);
+        txtCodHabitacion.setBounds(1020, 170, 100, 30);
+        getContentPane().add(txtEstadoHab);
+        txtEstadoHab.setBounds(1020, 210, 100, 30);
 
         tablaHabitacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -242,27 +253,52 @@ public class FormHoteles extends javax.swing.JInternalFrame {
 
         btnBuscarHab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/buscar.png"))); // NOI18N
         btnBuscarHab.setText("BUSCAR");
+        btnBuscarHab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarHabActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnBuscarHab);
         btnBuscarHab.setBounds(1180, 90, 150, 50);
 
         btnAgregarHab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/agregar.png"))); // NOI18N
         btnAgregarHab.setText("AGREGAR");
+        btnAgregarHab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarHabActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnAgregarHab);
         btnAgregarHab.setBounds(1180, 140, 150, 50);
 
         btnEliminarHab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/delete.png"))); // NOI18N
         btnEliminarHab.setText("ELIMINAR");
+        btnEliminarHab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarHabActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnEliminarHab);
         btnEliminarHab.setBounds(1180, 190, 150, 40);
 
         btnActualizarHab.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         btnActualizarHab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/actualizar.png"))); // NOI18N
         btnActualizarHab.setText("ACTUALIZAR");
+        btnActualizarHab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarHabActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnActualizarHab);
         btnActualizarHab.setBounds(1180, 230, 150, 40);
 
         btnListarHab.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/listar.png"))); // NOI18N
         btnListarHab.setText("LISTAR");
+        btnListarHab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarHabActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnListarHab);
         btnListarHab.setBounds(840, 290, 130, 40);
 
@@ -284,6 +320,12 @@ public class FormHoteles extends javax.swing.JInternalFrame {
         tableHotel.setValueAt(h.getCategoria(), 0, 3);
         tableHotel.setValueAt(h.calcularCostoServicio(), 0, 4);
         tableHotel.setValueAt(h.getHabitaciones(), 0, 5);
+        
+        txtLugar.setText(h.getLugar());
+        txtNomHotel.setText(h.getNomHotel());
+        cmbCategoria.setSelectedItem(""+h.getCategoria());
+        txthabitaciones.setText(""+h.getHabitaciones());
+        txtPrecio.setText(""+h.getCostohotel());
     }//GEN-LAST:event_btnBuscarHotelActionPerformed
 
     private void btnListarHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarHotelActionPerformed
@@ -296,21 +338,123 @@ public class FormHoteles extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnListarHotelActionPerformed
 
     private void btnAgregarHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarHotelActionPerformed
-        int codigo = Integer.parseInt(txtCodHotel.getText());
+        String lugar = txtLugar.getText();
         String nombre = txtNomHotel.getText();
-        int categoria = (int)cmbCategoria.getSelectedItem();
+        String categoria = (String)cmbCategoria.getSelectedItem();
         int habitacion = Integer.parseInt(txthabitaciones.getText());
-        int costo = Integer.parseInt(txtPrecio.getText());
-        Hotel h = new Hotel(nombre, categoria, nombre, habitacion, costo,nombre);
+        int precio = Integer.parseInt(txtPrecio.getText());
+        Hotel h = new Hotel(nombre, categoria, lugar, habitacion, precio, "HOTEL");
         objh.agregar(h);
         limpiarCamposHotel();
+        listarHotel();
     }//GEN-LAST:event_btnAgregarHotelActionPerformed
+
+    private void btnListarHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarHabActionPerformed
+        DefaultTableModel dt=(DefaultTableModel)tablaHabitacion.getModel();
+       dt.setRowCount(0);
+       for( Habitacion a: obja.data()){
+            Object v[]={"V"+a.getCod_hotel(),"A"+a.getCod_habi(),a.getEstado()};
+            dt.addRow(v);
+        }
+    }//GEN-LAST:event_btnListarHabActionPerformed
+
+    private void btnBuscarHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarHabActionPerformed
+        int cod=Integer.parseInt(txtCodHoHa.getText());
+        Habitacion ha=obja.buscar(obja.obtenerPosicion(cod));
+        limpiaTabla();
+        if(ha.getCod_hotel()==cod)
+        tablaHabitacion.setValueAt(ha.getCod_hotel(), 0, 0);
+        tablaHabitacion.setValueAt(ha.getCod_habi(), 0, 1);
+        tablaHabitacion.setValueAt(ha.getEstado(), 0, 2);
+
+        
+        txtCodHoHa.setText(""+ha.getCod_hotel());
+        txtCodHabitacion.setText(""+ha.getCod_habi());
+        txtEstadoHab.setText(ha.getEstado());
+    }//GEN-LAST:event_btnBuscarHabActionPerformed
+
+    private void btnAgregarHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarHabActionPerformed
+        int codHotel = Integer.parseInt(txtCodHoHa.getText());
+        String estado = txtEstadoHab.getText();
+        Habitacion ha =new Habitacion(codHotel, estado);
+        obja.agregar(ha);
+        limpiarCamposHabitacion();
+        listarHabitacion();
+    }//GEN-LAST:event_btnAgregarHabActionPerformed
+
+    private void btnEliminarHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarHotelActionPerformed
+        int pos = objh.obtenerPosicion(Integer.parseInt(txtCodHotel.getText()));
+        objh.eliminar(pos);
+        listarHotel();
+        limpiarCamposHotel();
+    }//GEN-LAST:event_btnEliminarHotelActionPerformed
+
+    private void btnEliminarHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarHabActionPerformed
+        int pos = obja.obtenerPosicion(Integer.parseInt(txtCodHabitacion.getText()));
+        obja.eliminar(pos);
+        listarHabitacion();
+        limpiarCamposHabitacion();
+    }//GEN-LAST:event_btnEliminarHabActionPerformed
+
+    private void btnActualizarHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarHotelActionPerformed
+        int posi=objh.obtenerPosicion(Integer.parseInt(txtCodHotel.getText()));
+        String lugar=txtLugar.getText();
+        String nombre=txtNomHotel.getText();
+        String categoria = (String)cmbCategoria.getSelectedItem();
+        int habitacion = Integer.parseInt(txthabitaciones.getText());
+        int precio = Integer.parseInt(txtPrecio.getText());
+        
+        Hotel hote=objh.buscar(posi);
+        hote.setLugar(lugar);
+        hote.setNomHotel(nombre);
+        hote.setCategoria(categoria);
+        hote.setHabitaciones(habitacion);
+        hote.setCostohotel(precio);
+        objh.actualizar(posi, hote);
+        limpiarCamposHotel();
+        listarHotel();
+    }//GEN-LAST:event_btnActualizarHotelActionPerformed
+
+    private void btnActualizarHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarHabActionPerformed
+        int pos=obja.obtenerPosicion(Integer.parseInt(txtCodHabitacion.getText()));
+        int codVuelo=Integer.parseInt(txtCodHoHa.getText());
+        String estado=txtEstadoHab.getText();
+        
+        Habitacion hab=obja.buscar(pos);
+        hab.setCod_hotel(codVuelo);
+        hab.setEstado(estado);
+        
+        obja.actualizar(pos, hab);
+        limpiarCamposHabitacion();
+        listarHabitacion();
+    }//GEN-LAST:event_btnActualizarHabActionPerformed
     void limpiarCamposHotel(){
         txtCodHotel.setText("");
         txtCodHotel.requestFocus();
         txtNomHotel.setText("");
         txthabitaciones.setText("");
         txtPrecio.setText("");
+    }
+    void listarHotel() {
+        DefaultTableModel dt = (DefaultTableModel) tableHotel.getModel();
+        dt.setRowCount(0);
+        for (Hotel hot : objh.data()) {
+            Object h[] = {hot.getCodigo(), hot.getLugar(), hot.getNomHotel(), hot.getCategoria(), hot.getCostohotel(), hot.getHabitaciones()};
+            dt.addRow(h);
+        }
+    }
+    void limpiarCamposHabitacion(){
+        txtCodHoHa.setText("");
+        txtCodHabitacion.requestFocus();
+        txtEstadoHab.setText("");
+    }
+    void listarHabitacion() {
+        DefaultTableModel dt = (DefaultTableModel) tablaHabitacion.getModel();
+        dt.setRowCount(0);
+        for (Habitacion hab : obja.data()) {
+            Object hb[] = {hab.getCod_hotel(), hab.getCod_habi(), hab.getEstado()};
+            dt.addRow(hb);
+        }
     }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -334,6 +478,22 @@ public class FormHoteles extends javax.swing.JInternalFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FormHoteles.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -393,13 +553,13 @@ public class FormHoteles extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTable tablaHabitacion;
     private javax.swing.JTable tableHotel;
+    private javax.swing.JTextField txtCodHabitacion;
+    private javax.swing.JTextField txtCodHoHa;
     private javax.swing.JTextField txtCodHotel;
+    private javax.swing.JTextField txtEstadoHab;
+    private javax.swing.JTextField txtLugar;
     private javax.swing.JTextField txtNomHotel;
     private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txthabitaciones;
