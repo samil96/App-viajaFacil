@@ -150,6 +150,9 @@ public class FrmLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Usuario o Contraseña invalidos");
         }else{
             JOptionPane.showMessageDialog(null, "Bienvenido");
+            MDIViajes ingresar = new MDIViajes();
+            ingresar.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
