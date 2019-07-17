@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package clases;
 
-import java.util.List;
 
 /**
  *
@@ -23,18 +17,21 @@ public class Vendedor extends Persona{
         this.usuario = usuario;
         this.password = password;
     }
+
+    public Vendedor() {
+        super(null, null);
+    }
     
-    public boolean registrarCliente(){
-        return false;
+    public String generaUsuario(String nombre, String apellido){
+        int num=(int)(Math.random()*100)+1;
+        String Usuario=nombre.substring(0, 3)+apellido.substring(0, 4)+num;
+        return Usuario;
     }
-    public Viajero buscarCliente(int cod){
-        return null;
-    }
-    public Paquete buscarPaquete(int cod){
-        return null;
-    }
-    public List<Viajero> listarCliente(){
-        return null;
+    
+    public String generaClave(String nombre, String apellido){
+        int num=(int)(Math.random()*999)+1;
+        String Usuario=nombre.substring(0, 2)+apellido.substring(2, 5)+num;
+        return Usuario;
     }
 
     public int getCodigo() {

@@ -1,7 +1,11 @@
 
 package clases;
 
-import java.util.List;
+import javax.swing.JOptionPane;
+import listas.listaHotel;
+import listas.listaTour;
+import listas.listaVuelo;
+
 /**
  *
  * @author FRANK Y LESLY
@@ -24,12 +28,34 @@ public class Paquete{
         this.detalle = detalle;
     }
 
-    
-    public double costoH(){
-        return 0;
+    public Paquete() {
     }
-    public double CostoT(){
-        return 0;
+    
+    public double costo(String codVuelo, String codHotel, String codTour){
+        listaVuelo objv=new listaVuelo();
+        listaHotel objh=new listaHotel();
+        listaTour objt=new listaTour();
+        double precio=0;
+        if (codVuelo.isEmpty() && codHotel.isEmpty() && codTour.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingresar codigos de servicios");
+        }else{
+            if (codVuelo.isEmpty()==false) {
+                int codV = Integer.parseInt(codVuelo);
+                Vuelo v=objv.buscar(objv.obtenerPosicion(codV));
+                precio=precio+v.calcularCostoServicio();
+            }
+            if (codHotel.isEmpty()==false) {
+                int codH = Integer.parseInt(codVuelo);
+                Hotel h=objh.buscar(objv.obtenerPosicion(codH));
+                precio=precio+h.calcularCostoServicio();
+            }
+            if (codTour.isEmpty()==false) {
+                int codT = Integer.parseInt(codVuelo);
+                Tour t=objt.buscar(objv.obtenerPosicion(codT));
+                precio=precio+t.calcularCostoServicio();
+            }
+        }
+        return precio*0.9;
     }
 
     public int getCod_Paquete() {

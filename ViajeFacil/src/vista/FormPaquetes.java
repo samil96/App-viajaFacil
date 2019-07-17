@@ -5,9 +5,9 @@
  */
 package vista;
 
-import Arreglo.*;
 import clases.*;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import listas.*;
 
@@ -20,7 +20,7 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
     listaHotel objh= new listaHotel();
     listaPaquete obj= new listaPaquete();
     listaTour objt= new listaTour();
-    
+    Paquete paq=new Paquete();
     public FormPaquetes() {
         initComponents();
     }
@@ -592,7 +592,33 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnElininaPaqueteActionPerformed
 
     private void btnCalculaPrecioPaqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculaPrecioPaqActionPerformed
+//        double precio=paq.costo(txServVuelo.getText(), txServHotel.getText(), txServTour.getText());
         
+        double precio=0;
+        String codVuelo=txServVuelo.getText();
+        String codHotel=txServHotel.getText();
+        String codTour=txServTour.getText();
+        if (codVuelo.isEmpty() && codHotel.isEmpty() && codTour.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Ingresar codigos de servicios");
+        }else{
+            if (codVuelo.isEmpty()==false) {
+                int codV = Integer.parseInt(codVuelo);
+                Vuelo v=objv.buscar(objv.obtenerPosicion(codV));
+                precio=precio+v.calcularCostoServicio();
+            }
+            if (codHotel.isEmpty()==false) {
+                int codH = Integer.parseInt(codVuelo);
+                Hotel h=objh.buscar(objv.obtenerPosicion(codH));
+                precio=precio+h.calcularCostoServicio();
+            }
+            if (codTour.isEmpty()==false) {
+                int codT = Integer.parseInt(codVuelo);
+                Tour t=objt.buscar(objv.obtenerPosicion(codT));
+                precio=precio+t.calcularCostoServicio();
+            }
+        }
+        precio=precio*0.9;
+        txPrecioPaquete.setText(""+precio);
     }//GEN-LAST:event_btnCalculaPrecioPaqActionPerformed
     
     /*metodos */

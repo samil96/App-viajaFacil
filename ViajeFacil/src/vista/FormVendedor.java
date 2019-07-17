@@ -5,15 +5,18 @@
  */
 package vista;
 
+import clases.Vendedor;
+import javax.swing.table.DefaultTableModel;
+import listas.listaVendedor;
+
 /**
  *
  * @author Valia
  */
 public class FormVendedor extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form FormVendedor
-     */
+    listaVendedor obj=new listaVendedor();
+    Vendedor x= new Vendedor();
     public FormVendedor() {
         initComponents();
     }
@@ -27,43 +30,35 @@ public class FormVendedor extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        txCod = new javax.swing.JTextField();
+        txNombre = new javax.swing.JTextField();
+        txApell = new javax.swing.JTextField();
+        btnbusca = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblVendedor = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        btnLista = new javax.swing.JButton();
+        btnElimina = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        btnRegistra = new javax.swing.JButton();
 
         setClosable(true);
         setMaximizable(true);
         setTitle("VentanaVendedor");
         setVisible(true);
-        getContentPane().setLayout(null);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(325, 93, 74, 20);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(193, 134, 206, 20);
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(193, 176, 206, 20);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/buscar.png"))); // NOI18N
-        jButton1.setText("BUSCAR");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(430, 90, 150, 50);
+        btnbusca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/buscar.png"))); // NOI18N
+        btnbusca.setText("BUSCAR");
+        btnbusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnbuscaActionPerformed(evt);
+            }
+        });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/agregar.png"))); // NOI18N
-        jButton2.setText("REGISTRAR");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(430, 150, 150, 50);
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblVendedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -71,43 +66,167 @@ public class FormVendedor extends javax.swing.JInternalFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "COD", "NOMBRES", "APELLIDOS", "DNI", "TELEFONO"
+                "COD", "NOMBRES", "APELLIDOS", "USUARIO", "PASSWORD"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
-
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(70, 310, 452, 227);
+        jScrollPane1.setViewportView(tblVendedor);
+        if (tblVendedor.getColumnModel().getColumnCount() > 0) {
+            tblVendedor.getColumnModel().getColumn(0).setMaxWidth(50);
+        }
 
         jLabel1.setFont(new java.awt.Font("Microsoft YaHei", 1, 30)); // NOI18N
         jLabel1.setText("VENDEDOR");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(225, 23, 174, 40);
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/listar.png"))); // NOI18N
-        jButton3.setText("LISTAR");
-        getContentPane().add(jButton3);
-        jButton3.setBounds(70, 240, 121, 59);
+        btnLista.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/listar.png"))); // NOI18N
+        btnLista.setText("LISTAR");
+        btnLista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListaActionPerformed(evt);
+            }
+        });
+
+        btnElimina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/delete.png"))); // NOI18N
+        btnElimina.setText("ELIMINAR");
+        btnElimina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminaActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setText("NOMBRES:");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(78, 134, 77, 17);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("APELLIDOS:");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(78, 176, 86, 17);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("CÓDIGO:");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(78, 93, 64, 17);
-        getContentPane().add(jSeparator1);
-        jSeparator1.setBounds(0, 70, 620, 2);
+
+        btnRegistra.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/agregar.png"))); // NOI18N
+        btnRegistra.setText("REGISTRAR");
+        btnRegistra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistraActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(225, 225, 225)
+                .addComponent(jLabel1))
+            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(78, 78, 78)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addComponent(txCod, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txApell, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnbusca, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegistra, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnElimina, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(btnLista))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel1)
+                .addGap(7, 7, 7)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnbusca, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(btnRegistra, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(btnElimina, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(24, 24, 24)
+                                .addComponent(jLabel2)
+                                .addGap(25, 25, 25)
+                                .addComponent(jLabel3))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21)
+                                .addComponent(txNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(22, 22, 22)
+                                .addComponent(txApell, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addComponent(btnLista)
+                .addGap(11, 11, 11)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRegistraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistraActionPerformed
+        
+        String nombre=txNombre.getText();
+        String apelli=txApell.getText();
+        String usuario=x.generaUsuario(nombre, apelli);
+        String clave=x.generaClave(nombre, apelli);
+        Vendedor v=new Vendedor(nombre, apelli, usuario, clave);
+        obj.agregar(v);
+        listarVendedor();
+    }//GEN-LAST:event_btnRegistraActionPerformed
+
+    private void btnEliminaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminaActionPerformed
+        int pos=obj.obtenerPosicion(Integer.parseInt(txCod.getText()));
+        obj.eliminar(pos);
+        listarVendedor();
+    }//GEN-LAST:event_btnEliminaActionPerformed
+
+    private void btnbuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscaActionPerformed
+        int pos=obj.obtenerPosicion(Integer.parseInt(txCod.getText()));
+        Vendedor x=obj.buscar(pos);
+        limpiarTabla();
+        tblVendedor.setValueAt(x.getCodigo(), 0, 0);
+        tblVendedor.setValueAt(x.getNombre(), 0, 1);
+        tblVendedor.setValueAt(x.getApellidos(), 0, 2);
+        tblVendedor.setValueAt(x.getUsuario(), 0, 3);
+        tblVendedor.setValueAt(x.getPassword(), 0, 4);
+    }//GEN-LAST:event_btnbuscaActionPerformed
+
+    private void btnListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaActionPerformed
+        listarVendedor();
+    }//GEN-LAST:event_btnListaActionPerformed
+    void listarVendedor(){
+        DefaultTableModel dt=(DefaultTableModel)tblVendedor.getModel();
+        dt.setRowCount(0);
+        for(Vendedor x: obj.data()){
+            Object v[]={x.getCodigo(), x.getNombre(), x.getApellidos(), x.getUsuario(), x.getPassword()};
+            dt.addRow(v);
+        }
+    }
+    private void limpiarTabla(){
+        for(int i=0;i<tblVendedor.getRowCount();i++){
+            for(int c=0;c<tblVendedor.getColumnCount();c++){
+                tblVendedor.setValueAt("", i, c);
+            }
+        }
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -138,6 +257,30 @@ public class FormVendedor extends javax.swing.JInternalFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -148,18 +291,19 @@ public class FormVendedor extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnElimina;
+    private javax.swing.JButton btnLista;
+    private javax.swing.JButton btnRegistra;
+    private javax.swing.JButton btnbusca;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTable tblVendedor;
+    private javax.swing.JTextField txApell;
+    private javax.swing.JTextField txCod;
+    private javax.swing.JTextField txNombre;
     // End of variables declaration//GEN-END:variables
 }

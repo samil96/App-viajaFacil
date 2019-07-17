@@ -19,6 +19,7 @@ public class FrmLogin extends javax.swing.JFrame {
      */
     public FrmLogin() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -120,6 +121,7 @@ public class FrmLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Bienvenido");
             MDIViajes verMDIViajes = new MDIViajes();
             verMDIViajes.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
