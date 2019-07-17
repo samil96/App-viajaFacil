@@ -45,12 +45,12 @@ public class Paquete{
                 precio=precio+v.calcularCostoServicio();
             }
             if (codHotel.isEmpty()==false) {
-                int codH = Integer.parseInt(codVuelo);
+                int codH = Integer.parseInt(codHotel);
                 Hotel h=objh.buscar(objv.obtenerPosicion(codH));
                 precio=precio+h.calcularCostoServicio();
             }
             if (codTour.isEmpty()==false) {
-                int codT = Integer.parseInt(codVuelo);
+                int codT = Integer.parseInt(codTour);
                 Tour t=objt.buscar(objv.obtenerPosicion(codT));
                 precio=precio+t.calcularCostoServicio();
             }

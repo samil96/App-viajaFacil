@@ -558,11 +558,23 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
 
     private void btnAgregaPaqueteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregaPaqueteActionPerformed
         String detalle=txDetalle.getText();
-        int codVuelo=Integer.parseInt(txServVuelo.getText());
-        int codHotel=Integer.parseInt(txServHotel.getText());
-        int codTour=Integer.parseInt(txServTour.getText());
+        String codVuelo=txServVuelo.getText();
+        String codHotel=txServHotel.getText();
+        String codTour=txServTour.getText();
+        int codV=0;
+        int codH=0;
+        int codT=0;
+        if (codVuelo.isEmpty()==false) {
+            codV = Integer.parseInt(codVuelo);
+        }
+        if (codHotel.isEmpty()==false) {
+            codH = Integer.parseInt(codHotel);
+        }
+        if (codTour.isEmpty()==false) {
+            codT = Integer.parseInt(codTour);
+        }
         double precio=Double.parseDouble(txPrecioPaquete.getText());
-        Paquete p=new Paquete(precio, codVuelo, codHotel, codTour, detalle);
+        Paquete p=new Paquete(precio, codV, codH, codT, detalle);
         obj.agregar(p);
         listarPaquete();
         limpiarCamposPaquete();
@@ -572,12 +584,24 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
         int pos=obj.obtenerPosicion(Integer.parseInt(txCodPaquete.getText()));
         Paquete p=obj.buscar(pos);
         String detalle=txDetalle.getText();
-        int codVuelo=Integer.parseInt(txServVuelo.getText());
-        int codHotel=Integer.parseInt(txServHotel.getText());
-        int codTour=Integer.parseInt(txServTour.getText());
+        String codVuelo=txServVuelo.getText();
+        String codHotel=txServHotel.getText();
+        String codTour=txServTour.getText();
+        int codV=0;
+        int codH=0;
+        int codT=0;
+        if (codVuelo.isEmpty()==false) {
+            codV = Integer.parseInt(codVuelo);
+        }
+        if (codHotel.isEmpty()==false) {
+            codH = Integer.parseInt(codHotel);
+        }
+        if (codTour.isEmpty()==false) {
+            codT = Integer.parseInt(codTour);
+        }
         double precio=Double.parseDouble(txPrecioPaquete.getText());
-        p.setDetalle(detalle);p.setCod_hotel(codHotel);
-        p.setCod_tour(codTour);p.setCod_vuelo(codVuelo);
+        p.setDetalle(detalle);p.setCod_hotel(codH);
+        p.setCod_tour(codT);p.setCod_vuelo(codV);
         p.setPrecio(precio);
         obj.actualizar(pos, p);
         listarPaquete();
@@ -607,13 +631,13 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
                 precio=precio+v.calcularCostoServicio();
             }
             if (codHotel.isEmpty()==false) {
-                int codH = Integer.parseInt(codVuelo);
-                Hotel h=objh.buscar(objv.obtenerPosicion(codH));
+                int codH = Integer.parseInt(codHotel);
+                Hotel h=objh.buscar(objh.obtenerPosicion(codH));
                 precio=precio+h.calcularCostoServicio();
             }
             if (codTour.isEmpty()==false) {
-                int codT = Integer.parseInt(codVuelo);
-                Tour t=objt.buscar(objv.obtenerPosicion(codT));
+                int codT = Integer.parseInt(codTour);
+                Tour t=objt.buscar(objt.obtenerPosicion(codT));
                 precio=precio+t.calcularCostoServicio();
             }
         }
