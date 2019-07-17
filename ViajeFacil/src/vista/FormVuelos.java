@@ -1,8 +1,9 @@
-
 package vista;
 
+import clases.Asiento;
 import clases.Vuelo;
 import javax.swing.table.DefaultTableModel;
+import listas.listaAsientos;
 import listas.listaVuelo;
 
 /**
@@ -10,8 +11,9 @@ import listas.listaVuelo;
  * @author Valia
  */
 public class FormVuelos extends javax.swing.JInternalFrame {
-    
+
     listaVuelo objv = new listaVuelo();
+    listaAsientos objA = new listaAsientos();
 
     /**
      * Creates new form FormVuelos
@@ -59,7 +61,7 @@ public class FormVuelos extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tablaAsientos = new javax.swing.JTable();
         jLabel13 = new javax.swing.JLabel();
-        txCodVuelo = new javax.swing.JTextField();
+        txCodVueloAsiento = new javax.swing.JTextField();
         btnBuscaAsiento = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         txCodAsiento = new javax.swing.JTextField();
@@ -229,7 +231,7 @@ public class FormVuelos extends javax.swing.JInternalFrame {
                                 .addGap(28, 28, 28)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtEstado, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                                    .addComponent(txCodVuelo)
+                                    .addComponent(txCodVueloAsiento)
                                     .addComponent(txCodAsiento))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,7 +254,7 @@ public class FormVuelos extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(txCodVuelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txCodVueloAsiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAgregarAsiento))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -379,13 +381,13 @@ public class FormVuelos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVuelosActionPerformed
-        int cod=Integer.parseInt(txtCodVuelo.getText());
-        Vuelo vue=objv.buscar(objv.obtenerPosicion(cod));
+        int cod = Integer.parseInt(txtCodVuelo.getText());
+        Vuelo vue = objv.buscar(objv.obtenerPosicion(cod));
         txtNombreAreolinea.setText(vue.getAerolinea());
-        cmbxDestino.setSelectedItem(""+ vue.getDestino());
-        txtFecha.setText(""+ vue.getFecha());
-        txtHora.setText(""+ vue.getHora());
-        txtAsientos.setText(""+ vue.getCant_asientos());
+        cmbxDestino.setSelectedItem("" + vue.getDestino());
+        txtFecha.setText("" + vue.getFecha());
+        txtHora.setText("" + vue.getHora());
+        txtAsientos.setText("" + vue.getCant_asientos());
     }//GEN-LAST:event_btnBuscarVuelosActionPerformed
 
     private void btnListarVuelosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarVuelosActionPerformed
@@ -393,56 +395,80 @@ public class FormVuelos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnListarVuelosActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        String areolinea=txtNombreAreolinea.getText();
-        String destino= (String) cmbxDestino.getSelectedItem();
+        String areolinea = txtNombreAreolinea.getText();
+        String destino = (String) cmbxDestino.getSelectedItem();
         String fecha = txtFecha.getText();
-        String hora = txtHora.getText();
-        int cantAsiento=Integer.parseInt(txtAsientos.getText());
-        Vuelo v = new Vuelo(areolinea, hora, destino, fecha, ABORT, cantAsiento, hora);      
+        int hora = Integer.parseInt(txtHora.getText());
+        int cantAsiento = Integer.parseInt(txtAsientos.getText());
+        Vuelo v = new Vuelo(areolinea, "LIMA", destino, fecha, hora, cantAsiento, "VUELO");
         objv.agregar(v);
         limpiarCamposVuelo();
         listarVuelos();
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
+        // No vale
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void btnAgregarAsientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarAsientoActionPerformed
-        
+        String codAsiento = txCodAsiento.getText();
+        int codVuelo = Integer.parseInt(txCodVueloAsiento.getText());
+        String estado = txtEstado.getText();
+
+        Asiento a = new Asiento(codAsiento, codVuelo, estado);
+        objA.agregar(a);
+        limpiarCamposAsientos();
+        listarAsientos();
     }//GEN-LAST:event_btnAgregarAsientoActionPerformed
 
     private void btnBuscaAsientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaAsientoActionPerformed
         
+        Asiento a = objA.buscar(objA.obtenerPosicion(txCodAsiento.getText()));
+        txCodVueloAsiento.setText("" + a.getCod_vuelo());
+        txtEstado.setText(a.getEstado());
     }//GEN-LAST:event_btnBuscaAsientoActionPerformed
 
     private void btnActualizarAsientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarAsientoActionPerformed
-        
+        int pos = objv.obtenerPosicion(Integer.parseInt(txtCodVuelo.getText()));
+        String codAsiento = txCodAsiento.getText();
+        int codVue = Integer.parseInt(txCodVueloAsiento.getText());
+        String estado = txtEstado.getText();
+        Asiento a = objA.buscar(pos);
+        a.setCod(codAsiento);
+        a.setCod_vuelo(codVue);
+        a.setEstado(estado);
+        objA.actualizar(pos, a);
+        limpiarCamposAsientos();
+        listarAsientos();
     }//GEN-LAST:event_btnActualizarAsientoActionPerformed
 
     private void btnDeleteAsientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteAsientoActionPerformed
-        
+        String codAsiento = txCodAsiento.getText();
+        int pos = objA.obtenerPosicion(codAsiento);
+        objA.eliminar(pos);
+        listarAsientos();
+        limpiarCamposAsientos();
     }//GEN-LAST:event_btnDeleteAsientoActionPerformed
 
     private void btnListaAsientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaAsientoActionPerformed
-        
+        listarAsientos();
     }//GEN-LAST:event_btnListaAsientoActionPerformed
 
     private void btnEliminarVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarVueloActionPerformed
-        int pos=objv.obtenerPosicion(Integer.parseInt(txtCodVuelo.getText()));
+        int pos = objv.obtenerPosicion(Integer.parseInt(txtCodVuelo.getText()));
         objv.eliminar(pos);
         listarVuelos();
         limpiarCamposVuelo();
     }//GEN-LAST:event_btnEliminarVueloActionPerformed
 
     private void btnActualizarVueloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarVueloActionPerformed
-        int pos=objv.obtenerPosicion(Integer.parseInt(txtCodVuelo.getText()));
-        String areolinea=txtNombreAreolinea.getText();
-        String destino= (String) cmbxDestino.getSelectedItem();
+        int pos = objv.obtenerPosicion(Integer.parseInt(txtCodVuelo.getText()));
+        String areolinea = txtNombreAreolinea.getText();
+        String destino = (String) cmbxDestino.getSelectedItem();
         String fecha = txtFecha.getText();
         int hora = Integer.parseInt(txtHora.getText());
-        int cantAsiento=Integer.parseInt(txtAsientos.getText());
-        Vuelo v =objv.buscar(pos);
+        int cantAsiento = Integer.parseInt(txtAsientos.getText());
+        Vuelo v = objv.buscar(pos);
         v.setAerolinea(areolinea);
         v.setDestino(destino);
         v.setFecha(fecha);
@@ -452,18 +478,27 @@ public class FormVuelos extends javax.swing.JInternalFrame {
         limpiarCamposVuelo();
         listarVuelos();
     }//GEN-LAST:event_btnActualizarVueloActionPerformed
-    
+
     /*metodos para limpiar los campos*/
-    void listarVuelos(){
-        DefaultTableModel dt=(DefaultTableModel)tablaVuelos.getModel();
+    void listarVuelos() {
+        DefaultTableModel dt = (DefaultTableModel) tablaVuelos.getModel();
         dt.setRowCount(0);
-        for(Vuelo vue: objv.data()){
-            Object v[]={vue.getCodigo(), vue.getAerolinea(), vue.getDestino(), vue.getFecha(), vue.getHora(), vue.getCant_asientos() };
+        for (Vuelo vue : objv.data()) {
+            Object v[] = {vue.getCodigo(), vue.getAerolinea(), vue.getDestino(), vue.getFecha(), vue.getHora(), vue.getCant_asientos()};
             dt.addRow(v);
         }
     }
-    
-    void limpiarCamposVuelo(){
+
+    void listarAsientos() {
+        DefaultTableModel dt = (DefaultTableModel) tablaAsientos.getModel();
+        dt.setRowCount(0);
+        for (Asiento a : objA.data()) {
+            Object v[] = {a.getCod(), a.getCod_vuelo(), a.getEstado()};
+            dt.addRow(v);
+        }
+    }
+
+    void limpiarCamposVuelo() {
         txtAsientos.setText("");
         txtCodVuelo.requestFocus();
         txtFecha.setText("");
@@ -471,7 +506,13 @@ public class FormVuelos extends javax.swing.JInternalFrame {
         txtNombreAreolinea.setText("");
         cmbxDestino.setSelectedIndex(0);
     }
-    
+
+    void limpiarCamposAsientos() {
+        txtEstado.setText("");
+        txCodAsiento.requestFocus();
+        txCodVueloAsiento.requestFocus();
+    }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -538,7 +579,7 @@ public class FormVuelos extends javax.swing.JInternalFrame {
     private javax.swing.JTable tablaAsientos;
     private javax.swing.JTable tablaVuelos;
     private javax.swing.JTextField txCodAsiento;
-    private javax.swing.JTextField txCodVuelo;
+    private javax.swing.JTextField txCodVueloAsiento;
     private javax.swing.JTextField txtAsientos;
     private javax.swing.JTextField txtCodVuelo;
     private javax.swing.JTextField txtEstado;
