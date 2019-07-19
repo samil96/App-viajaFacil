@@ -6,6 +6,7 @@
 package listas;
 
 import Arreglo.ArregloHabitacion;
+import clases.Actividades;
 import clases.Habitacion;
 import interfaces.iMantenedor;
 import java.util.List;
@@ -27,6 +28,16 @@ public class listaHabitacion implements iMantenedor<Habitacion>{
             }
         }
         return pos;
+    }
+    public List<Habitacion> datosporHotel(int cod_hotel){
+        List<Habitacion> lista=new ArrayList<>();
+        for (int i = 0; i < tamanio(); i++) {
+            if(habitacion.get(i).getCod_hotel()==cod_hotel){
+                Habitacion x=habitacion.get(i);
+                lista.add(x);
+            }
+        }
+        return lista;
     }
             
         public List<Habitacion> data() {

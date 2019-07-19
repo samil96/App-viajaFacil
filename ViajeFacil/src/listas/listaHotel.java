@@ -13,8 +13,8 @@ import java.util.ArrayList;
  * @author Lesly
  */
 public class listaHotel implements iMantenedor<Hotel>{
-    ArregloHotel objh = new ArregloHotel();
-    private List<Hotel> hotel= objh.getHot();
+    ArregloHotel objH = new ArregloHotel();
+    private List<Hotel> hotel= objH.getHot();
     
     
     

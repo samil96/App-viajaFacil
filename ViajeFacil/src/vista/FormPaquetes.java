@@ -511,7 +511,8 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
         tableHotel.setValueAt(h.getLugar(), 0, 1);
         tableHotel.setValueAt(h.getNomHotel(), 0, 2);
         tableHotel.setValueAt(h.getCategoria(), 0, 3);
-        tableHotel.setValueAt(h.getHabitaciones(), 0, 4);
+        tableHotel.setValueAt(h.getCostohotel(), 0, 4);
+        tableHotel.setValueAt(h.getHabitaciones(), 0, 5);
 
     }//GEN-LAST:event_btnBuscarHotelesActionPerformed
 
@@ -671,7 +672,7 @@ public class FormPaquetes extends javax.swing.JInternalFrame {
         DefaultTableModel dt=(DefaultTableModel)tableHotel.getModel();
         dt.setRowCount(0);
         for(Hotel h: x){
-            Object v[]={h.getCodigo(),h.getLugar(),h.getNomHotel(),h.getCategoria(),h.getHabitaciones()};
+            Object v[]={h.getCodigo(),h.getLugar(),h.getNomHotel(),h.getCategoria(),h.getCostohotel(),h.getHabitaciones()};
             dt.addRow(v);
         }
     }

@@ -19,20 +19,20 @@ public class ArregloHabitacion{
 
     public ArregloHabitacion() {
         habitacion = new ArrayList();
-        habitacion.add(new Habitacion(1001, "Libre"));
-        habitacion.add(new Habitacion(1001, "Ocupado"));
-        habitacion.add(new Habitacion(1002, "Libre"));
+        habitacion.add(new Habitacion(1008, "Libre"));
+        habitacion.add(new Habitacion(1008, "Ocupado"));
+        habitacion.add(new Habitacion(1009, "Libre"));
         habitacion.add(new Habitacion(1002, "Libre"));
         habitacion.add(new Habitacion(1003, "Libre"));
         habitacion.add(new Habitacion(1003, "Libre"));
         habitacion.add(new Habitacion(1004, "Ocupado"));
         habitacion.add(new Habitacion(1004, "Libre"));
-        habitacion.add(new Habitacion(1004, "Libre"));
-        habitacion.add(new Habitacion(1004, "Libre"));
-        habitacion.add(new Habitacion(1004, "Ocupado"));
-        habitacion.add(new Habitacion(1004, "Libre"));
-        habitacion.add(new Habitacion(1004, "Ocupado"));
-        habitacion.add(new Habitacion(1004, "Libre"));
+        habitacion.add(new Habitacion(1005, "Libre"));
+        habitacion.add(new Habitacion(1015, "Libre"));
+        habitacion.add(new Habitacion(1006, "Ocupado"));
+        habitacion.add(new Habitacion(1020, "Libre"));
+        habitacion.add(new Habitacion(1007, "Ocupado"));
+        habitacion.add(new Habitacion(1007, "Libre"));
     }
 
     public List<Habitacion> getHabi() {

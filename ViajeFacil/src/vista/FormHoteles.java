@@ -56,6 +56,7 @@ public class FormHoteles extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         btnBuscarHotel = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
+        btnHotelHab = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -210,6 +211,16 @@ public class FormHoteles extends javax.swing.JInternalFrame {
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(0, 59, 1410, 10);
 
+        btnHotelHab.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnHotelHab.setText("LISTAR HABITACIONES");
+        btnHotelHab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHotelHabActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnHotelHab);
+        btnHotelHab.setBounds(390, 350, 210, 50);
+
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("CÓDIGO:");
         getContentPane().add(jLabel10);
@@ -243,7 +254,7 @@ public class FormHoteles extends javax.swing.JInternalFrame {
                 {null, null, null}
             },
             new String [] {
-                "CODIGO", "COD. HABITACION", "ESTADO"
+                "COD. HABITACION", "CODIGO", "ESTADO"
             }
         ));
         jScrollPane2.setViewportView(tablaHabitacion);
@@ -314,7 +325,7 @@ public class FormHoteles extends javax.swing.JInternalFrame {
         Hotel h=objh.buscar(objh.obtenerPosicion(cod));
         limpiaTabla();
         if(h.getCodigo()==cod)
-        tableHotel.setValueAt("H"+h.getCodigo(), 0, 0);
+        tableHotel.setValueAt(h.getCodigo(), 0, 0);
         tableHotel.setValueAt(h.getLugar(), 0, 1);
         tableHotel.setValueAt(h.getNomHotel(), 0, 2);
         tableHotel.setValueAt(h.getCategoria(), 0, 3);
@@ -331,9 +342,9 @@ public class FormHoteles extends javax.swing.JInternalFrame {
     private void btnListarHotelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarHotelActionPerformed
         DefaultTableModel dt=(DefaultTableModel)tableHotel.getModel();
        dt.setRowCount(0);
-       for(Hotel h: objh.data()){
-            Object v[]={"H"+h.getCodigo(),h.getLugar(),h.getNomHotel(),h.getCategoria(),h.calcularCostoServicio(),h.getHabitaciones()};
-            dt.addRow(v);
+       for(Hotel x: objh.data()){
+            Object j[]={x.getCodigo(),x.getLugar(),x.getNomHotel(),x.getCategoria(),x.calcularCostoServicio(),x.getHabitaciones()};
+            dt.addRow(j);
         }
     }//GEN-LAST:event_btnListarHotelActionPerformed
 
@@ -353,7 +364,7 @@ public class FormHoteles extends javax.swing.JInternalFrame {
         DefaultTableModel dt=(DefaultTableModel)tablaHabitacion.getModel();
        dt.setRowCount(0);
        for( Habitacion a: obja.data()){
-            Object v[]={"V"+a.getCod_hotel(),"A"+a.getCod_habi(),a.getEstado()};
+            Object v[]={a.getCod_habi(),a.getCod_hotel(),a.getEstado()};
             dt.addRow(v);
         }
     }//GEN-LAST:event_btnListarHabActionPerformed
@@ -428,6 +439,16 @@ public class FormHoteles extends javax.swing.JInternalFrame {
         limpiarCamposHabitacion();
         listarHabitacion();
     }//GEN-LAST:event_btnActualizarHabActionPerformed
+
+    private void btnHotelHabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHotelHabActionPerformed
+        int cod=Integer.parseInt(txtCodHotel.getText());
+        DefaultTableModel dt=(DefaultTableModel)tablaHabitacion.getModel();
+        dt.setRowCount(0);
+        for(Habitacion x: obja.datosporHotel(cod)){
+            Object v[]={x.getCod_habi(), x.getCod_hotel(), x.getEstado()};
+            dt.addRow(v);
+        }
+    }//GEN-LAST:event_btnHotelHabActionPerformed
     void limpiarCamposHotel(){
         txtCodHotel.setText("");
         txtCodHotel.requestFocus();
@@ -534,6 +555,7 @@ public class FormHoteles extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBuscarHotel;
     private javax.swing.JButton btnEliminarHab;
     private javax.swing.JButton btnEliminarHotel;
+    private javax.swing.JButton btnHotelHab;
     private javax.swing.JButton btnListarHab;
     private javax.swing.JButton btnListarHotel;
     private javax.swing.JComboBox<String> cmbCategoria;
