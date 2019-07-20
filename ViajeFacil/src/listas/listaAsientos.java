@@ -28,6 +28,19 @@ public class listaAsientos implements iMantenedor<Asiento>{
         }
         return pos;
     }
+    
+    /*dividir la listas de asientos relacionado con los vuelos*/
+    public List<Asiento> datosporVuelo(int cod_asiento){
+        List<Asiento> lista=new ArrayList<>();
+        for (int i = 0; i < tamanio(); i++) {
+            if(asiento.get(i).getCod_vuelo()==cod_asiento){
+                Asiento a=asiento.get(i);
+                lista.add(a);
+            }
+        }
+        return lista;
+    }
+    
     public String cambiarEstado(String codigo){
         String nEstado="Disponible";
         for (int i = 0; i < tamanio(); i++) {

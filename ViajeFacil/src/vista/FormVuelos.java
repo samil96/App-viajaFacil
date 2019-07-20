@@ -55,6 +55,7 @@ public class FormVuelos extends javax.swing.JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
+        btnListarAsientos = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -212,6 +213,17 @@ public class FormVuelos extends javax.swing.JInternalFrame {
         jTextField1.setBounds(301, 170, 139, 30);
         getContentPane().add(jSeparator1);
         jSeparator1.setBounds(0, 64, 1380, 10);
+
+        btnListarAsientos.setBackground(new java.awt.Color(153, 255, 204));
+        btnListarAsientos.setForeground(new java.awt.Color(0, 0, 255));
+        btnListarAsientos.setText("Listar Asientos");
+        btnListarAsientos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarAsientosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnListarAsientos);
+        btnListarAsientos.setBounds(307, 380, 130, 23);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/vista/img/fontvuelo.png"))); // NOI18N
         getContentPane().add(jLabel9);
@@ -415,6 +427,16 @@ public class FormVuelos extends javax.swing.JInternalFrame {
         limpiarCamposVuelo();
         listarVuelos();
     }//GEN-LAST:event_btnActualizarVueloActionPerformed
+
+    private void btnListarAsientosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarAsientosActionPerformed
+        int cod=Integer.parseInt(txtCodVuelo.getText());
+        DefaultTableModel dt=(DefaultTableModel)tablaasientos.getModel();
+        dt.setRowCount(0);
+        for(Asiento a: objA.datosporVuelo(cod)){
+            Object v[]={a.getCod(), a.getCod_vuelo(), a.getEstado() };
+            dt.addRow(v);
+        }
+    }//GEN-LAST:event_btnListarAsientosActionPerformed
     void listarVuelos() {
         DefaultTableModel dt = (DefaultTableModel) tablaVuelos.getModel();
         dt.setRowCount(0);
@@ -480,6 +502,30 @@ public class FormVuelos extends javax.swing.JInternalFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>{
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>{
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>{
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>{
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>{
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>{
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>{
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -499,6 +545,7 @@ public class FormVuelos extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnEliminarAsiento;
     private javax.swing.JButton btnEliminarVuelo;
     private javax.swing.JButton btnListarAsiento;
+    private javax.swing.JButton btnListarAsientos;
     private javax.swing.JButton btnListarVuelos;
     private javax.swing.JComboBox<String> cmbxDestino;
     private javax.swing.JLabel jLabel1;
